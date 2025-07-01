@@ -4193,11 +4193,11 @@ section.events-inner-section {
 }
 
 .page-loader .h3-title {
-    font-size: 10em;
+    font-size: 45px;
     font-family: var(--title-font);
     color: var(--white-color);
     opacity: 0.4;
-    font-weight: 100;
+    font-weight: 700;
 }
 
 
