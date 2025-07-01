@@ -309,3 +309,6 @@ VANTA.HALO({
 
         // Start typing effect after initial animation
         setTimeout(typeWriter, 1000);
+
+
+        
