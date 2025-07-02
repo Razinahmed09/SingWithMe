@@ -87,8 +87,8 @@ $(document).ready(function($) {
     // Video Slider JS
 
    var video_slider = new Swiper(".video-slider", {
-    slidesPerView: 1.5,
-    spaceBetween: 30,
+    slidesPerView: 4,
+    spaceBetween: 10,
     loop: true,
     grabCursor: true,
     centeredSlides: true,
@@ -97,25 +97,26 @@ $(document).ready(function($) {
     autoplay: {
         delay: 0,              // No pause between slides
         disableOnInteraction: false, // keep autoplay running on user interaction
+        pauseOnMouseEnter: true,
     },
 
     breakpoints: {
         0: {
-            slidesPerView: 1.2,
+            slidesPerView: 2,
             spaceBetween: 20,
         },
         640: {
-            slidesPerView: 1.5,
+            slidesPerView: 2,
         },
         768: {
-            slidesPerView: 1.5,
+            slidesPerView: 3,
         },
         1024: {
-            slidesPerView: 1.5,
+            slidesPerView: 4,
         },
     }
 });
-
+// video_slider()
     // sponsor Slider JS
 
     var sponsor_slider = new Swiper(".sponsor-slider", {
@@ -312,3 +313,9 @@ VANTA.HALO({
 
 
         
+    //header music box script
+
+   
+
+
+    //header music box script

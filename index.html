@@ -99,51 +99,93 @@
         <!-- End of Header -->
 
         <!-- Start of Main Banner -->
-        <section class="main-banner hero_sec py-4">
+        <section class="main-banner hero_sec ">
+            <div class="child_hero py-4">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7 col-xxl-7 col-xl-7 col-md-7">
+                <div class="row align-items-baseline">
+                    <div class="col-lg-4 col-xxl-4 col-xl-4 col-md-4">
                         <div class="banner-content">
                             <!-- <h3 class="wow left-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">One good thing about music,</h3> -->
                             <h1 class="h1-title wow left-animation" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                               <span class="heading-text"> Welcome to SingWithMe</span> Records Ltd – Empowering Independent Artists Worldwide.
+                               <span class="span-heading"> Join </span>SingWithMe
                             </h1>
-                            <p class="wow left-animation" data-wow-duration="0.8s" data-wow-delay="0.3s">SingWithMe
-                                Records Ltd is more than just a platform, it's a community for independent artists to
-                                share their passion, grow their fanbase, and take their music career to new heights. We
-                                offer an
-                                easy-to-use platform for artists to upload their songs, music videos, photos, and
-                                artwork, and
-                                distribute them across major music platforms like Spotify, YouTube, iTunes, and TikTok.
-                                Our
-                                goal is to provide artists with the tools they need to succeed, while keeping things
-                                simple,
-                                transparent, and artist-friendly. <br>
-                                Ready to take your music career to the next level? Join SingWithMe Records Ltd today!
+                            <p class="wow left-animation" data-wow-duration="0.8s" data-wow-delay="0.3s">SingWithMe Records Ltd is a community-driven platform for independent artists to share their music, grow their fanbase, and reach global audiences. Upload songs, videos, and artwork with ease, and distribute them to Spotify, YouTube, iTunes, TikTok, and more. Simple, transparent, and built for artists—join us today and elevate your music career!
                             </p>
                             <div class="banner-btn">
                                 <a href="javascript:void(0);" title="Google Play" class="sec-btn wow left-animation"
-                                    data-wow-duration="0.8s" data-wow-delay="0.4s"> <span><i
-                                            class="fab fa-google-play"></i></span>Google play </a>
-                                <a href="javascript:void(0);" title="Amazon Music"
+                                    data-wow-duration="0.8s" data-wow-delay="0.4s">Exlpore More </a>
+                                <!-- <a href="javascript:void(0);" title="Amazon Music"
                                     class="sec-btn hover-btn wow left-animation" data-wow-duration="0.8s"
-                                    data-wow-delay="0.5s"> <span><i class="fa fa-search-plus"></i></span>Exlpore More</a>
+                                    data-wow-delay="0.5s"> <span><i class="fa fa-search-plus"></i></span>Exlpore More</a> -->
+                            </div>
+                            <div class="pt-4 player-parent">
+                            <div class="player-container">
+                            <div class="song-info">
+                                <div class="album-art" id="albumArt">
+                                   <img src="/assets/images/singWithMe/artist2.jpg" alt="">
+                                </div>
+                                <div class="track-details">
+                                    <div class="song-title" id="songTitle">Sweet Child O' Mine</div>
+                                    <div class="artist-album" id="artistAlbum">Use Your Illusion 2</div>
+                                </div>
+                                <div class="like-section">
+                                    <button class="like-btn" id="likeBtn" onclick="toggleLike()">♡</button>
+                                    <button class="add-btn" onclick="addToPlaylist()">+</button>
+                                </div>
+                            </div>
+
+                            <div class="progress-section">
+                                <div class="time-display">
+                                    <span id="currentTime">3:17</span>
+                                    <span id="totalTime">5:07</span>
+                                </div>
+                                <div class="progress-container" onclick="seekTo(event)">
+                                    <div class="progress-bar" id="progressBar"></div>
+                                </div>
+                            </div>
+
+                            <div class="controls">
+                                <button class="control-btn" onclick="previousTrack()">⏮</button>
+                                <button class="control-btn play-pause-btn" id="playPauseBtn" onclick="togglePlayPause()">⏸</button>
+                                <button class="control-btn" onclick="nextTrack()">⏭</button>
+                                <div class="wave-animation" id="waveAnimation">
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                    <div class="wave-bar"></div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="volume-section">
+                                <span class="volume-icon" onclick="toggleMute()">🔊</span>
+                                <div class="volume-slider" onclick="setVolume(event)">
+                                    <div class="volume-fill" id="volumeFill"></div>
+                                </div>
+                            </div>
+
+                            <div class="shuffle-repeat">
+                                <button class="mode-btn" id="shuffleBtn" onclick="toggleShuffle()">🔀 Shuffle</button>
+                                <button class="mode-btn" id="repeatBtn" onclick="toggleRepeat()">🔁 Repeat</button>
+                            </div> -->
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-xxl-4 col-xl-4 col-md-4 ">
+                        <div>
+                            <div class="search-container">
+                            <input type="text" class="search-bar" placeholder="Search Song" />
+                            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21 21-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-xxl-5 col-xl-5 col-md-5 ">
-                        <!-- <div class="hero-img wow right-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                            <div class="relative_Img">
-                                <img src="/assets/images/singWithMe/hero-img.jpg" alt="">
-                            </div>
-                            <div class="absolute-img">
-                                <img src="/assets/images/singWithMe/hero-img2.jpg" alt="">
-                            </div>
-                        </div> -->
+                    <div class="col-lg-4 col-xxl-4 col-xl-4 col-md-4 ">
                         <div class="banner-video">
-                        <video width="100%" height="100%" autoplay loop>
-                        <source src="/assets/images/singWithMe/video/header.webm" type="video/mp4">
-                        </video>
+                            <!-- <video id="bgVideo" width="100%" height="100%" autoplay muted loop>
+                             <source src="/assets/images/singWithMe/video/header.webm" type="video/mp4">
+                            </video> -->
                         <div>
                             <div class="vector_1">
                             <lord-icon
@@ -153,24 +195,54 @@
                                 colors="primary:#121331,secondary:#ffffff">
                             </lord-icon>
                             </div>
-                            <div class="vector_2">
+                            <div class="vector_2 d-none">
                                 <lord-icon
                                     src="https://cdn.lordicon.com/rzgcaxjz.json"
                                     trigger="loop"
                                     colors="primary:#121331,secondary:#ffffff">
                                 </lord-icon>
                             </div>
-                            <div class="vector_3">
+                            <!-- <div class="vector_3">
                                 <lord-icon
                                     src="https://cdn.lordicon.com/qfwgmyhc.json"
                                     trigger="loop"
                                     delay="2000"
                                     colors="primary:#121331,secondary:#ffffff">
                                 </lord-icon>
+                            </div> -->
+                        </div>
+                        </div>
+                       
+                        <div class="populor-corner">
+                            <div>
+                                <h3>Popular Corner</h3>
+                            </div>
+                            <div class="popular-images">
+                            <div class="row">
+                            <div class="col-6 mt-2">
+                                <div>
+                                <img src="/assets/images/singWithMe/song2.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-6 mt-2">
+                                <div>
+                                <img src="/assets/images/singWithMe/song3.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-6 my-2">
+                                <div>
+                                <img src="/assets/images/singWithMe/song-img.jpg" alt="">
+                                </div>
+                            </div>
+                            <div class="col-6 my-2">
+                                <div>
+                                <img src="/assets/images/singWithMe/Music-Upload.jpg" alt="">
+                                </div>
+                            </div>
+                            </div>
                             </div>
                         </div>
-                        </div>
-                        <div class="wrapper">
+                        <!-- <div class="wrapper">
                         <span class="bubble"></span>
                         <span class="bubble"></span>
                         <span class="bubble"></span>
@@ -181,9 +253,10 @@
                         <span class="bubble"></span>
                         <span class="bubble"></span>
                         <span class="bubble"></span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
+            </div>
             </div>
         </section>
         <!-- End of Main Banner -->
@@ -673,13 +746,17 @@
         <!-- Start Of Upcoming Section -->
         <section class="upcoming-section">
             <div class="container">
-                <div class="row">
+                <div class="row mt-4">
                     <div class="col-lg-12">
                         <div class="title">
-                            <h2 class="h2-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                Upcoming</h2>
+                            <!-- <h2 class="h2-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                                Upcoming</h2> -->
+                                <div class="main mx-auto">
+                                    <h2 class="first">Upcoming</h2>
+                                    <h2 class="second">Upcoming</h2>
+                                </div>
                         </div>
-                        <div class="upcoming-box">
+                        <div class="upcoming-box mt-5" style="margin-top: 8rem !important;">
                             <div class="row">
                                 <div class="col-lg-3 col-6">
                                     <div class="countdown-box wow fadeup-animation" data-wow-duration="0.8s"
@@ -721,7 +798,11 @@
                     <div class="col-lg-12">
                         <div class="title">
                             <h2 class="h2-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">
-                                Our Services</h2>
+                                </h2>
+                                <div class="main mx-auto">
+                                    <h2 class="first">Our Services</h2>
+                                    <h2 class="second">Our Services</h2>
+                                </div>
                             <h4 class="h4-title  wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                 Empowering independent artists through powerful tools, distribution, and creative
                                 support.</h4>
@@ -733,7 +814,7 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="event-box">
-                                    <span class="date-tag">20 <span>nov</span></span>
+                                    <!-- <span class="date-tag">20 <span>nov</span></span> -->
                                     <div class="back-img"
                                         style="background-image: url(assets/images/singWithMe/Music-Upload.jpg);"></div>
                                     <div class="event-content">
@@ -744,7 +825,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="event-box">
-                                    <span class="date-tag">30 <span>jul</span></span>
+                                    <!-- <span class="date-tag">30 <span>jul</span></span> -->
                                     <div class="back-img"
                                         style="background-image: url(assets/images/singWithMe/royalty.avif);">
                                     </div>
@@ -756,7 +837,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="event-box">
-                                    <span class="date-tag">7 <span>feb</span></span>
+                                    <!-- <span class="date-tag">7 <span>feb</span></span> -->
                                     <div class="back-img" style="background-image: url(assets/images/dimitri.jpg);">
                                     </div>
                                     <div class="event-content">
@@ -767,18 +848,18 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="event-box">
-                                    <span class="date-tag">31 <span>dec</span></span>
+                                    <!-- <span class="date-tag">31 <span>dec</span></span> -->
                                     <div class="back-img"
                                         style="background-image: url(assets/images/jesse-ramirez.jpg);"></div>
                                     <div class="event-content">
                                         <a href="#" title="AfterHills Festival">Artwork & Photo Upload</a>
-                                        <span>Wakestock Festival</span>
+                                        <!-- <span>Wakestock Festival</span> -->
                                     </div>
                                 </div>
                             </div>
                             <div class="swiper-slide">
                                 <div class="event-box">
-                                    <span class="date-tag">31 <span>dec</span></span>
+                                    <!-- <span class="date-tag">31 <span>dec</span></span> -->
                                     <div class="back-img"
                                         style="background-image: url(assets/images/singWithMe/Support-Networking.avif);">
                                     </div>
@@ -904,7 +985,7 @@
         <!-- End of Sponsor Section-->
 
         <!-- Start of Video Gallery-->
-        <div class="video-gallery  video-slider">
+        <!-- <div class="video-gallery  video-slider">
             <div class="swiper-wrapper">
                 <div class="video-box swiper-slide">
                     <div class="back-img" style="background-image: url(assets/images/ricardo-nunes.jpg);">
@@ -942,7 +1023,180 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        
+        <section class="video_slider py-5">
+         <div class="container">
+            <div class="section-header">
+                <!-- <div class="section-icon"></div> -->
+                <!-- <h2 class="section-title">Recent LIVE Videos</h2> -->
+                <div class="main mx-auto">
+                    <h2 class="first">Recent Live Videos</h2>
+                    <h2 class="second">Recent Live Videos</h2>
+                </div>
+            </div>
+
+            <div class="swiper video-slider">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <video id="bgVideo" width="100%" height="100%" autoplay muted loop>
+                            <source src="/assets/images/singWithMe/video/video.mp4" type="video/mp4">
+                        </video> 
+                        <div class="video-thumbnail video-1">
+                            <div class="live-badge">
+                                <div class="live-dot"></div>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <!-- <div class="video-category">T-Series</div> -->
+                            <div class="video-title">Best Artist</div>
+                            <div class="video-stats">
+                                <div class="stats-left">
+                                    <div class="viewers">
+                                        <div class="viewer-dot"></div>
+                                        16M views
+                                    </div>
+                                    <span>49 minutes ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <video id="bgVideo" width="100%" height="100%" autoplay muted loop>
+                            <source src="/assets/images/singWithMe/video/video2.mp4" type="video/mp4">
+                        </video> 
+                        <div class="video-thumbnail video-2">
+                            <div class="live-badge">
+                                <div class="live-dot"></div>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <!-- <div class="video-category">T-Series</div> -->
+                            <div class="video-title">Music Performance Live</div>
+                            <div class="video-stats">
+                                <div class="stats-left">
+                                    <div class="viewers">
+                                        <div class="viewer-dot"></div>
+                                        12M views
+                                    </div>
+                                    <span>1 hour ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <video id="bgVideo" width="100%" height="100%" autoplay muted loop>
+                            <source src="/assets/images/singWithMe/video/video3.mp4" type="video/mp4">
+                        </video> 
+                        <div class="video-thumbnail video-3">
+                            <div class="live-badge">
+                                <div class="live-dot"></div>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <!-- <div class="video-category">T-Series</div> -->
+                            <div class="video-title">Cooking Show Live Stream</div>
+                            <div class="video-stats">
+                                <div class="stats-left">
+                                    <div class="viewers">
+                                        <div class="viewer-dot"></div>
+                                        8M views
+                                    </div>
+                                    <span>2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <video id="bgVideo" width="100%" height="100%" autoplay muted loop>
+                            <source src="/assets/images/singWithMe/video/video4.mp4" type="video/mp4">
+                        </video> 
+                        <div class="video-thumbnail video-4">
+                            <div class="live-badge">
+                                <div class="live-dot"></div>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <!-- <div class="video-category">T-Series</div> -->
+                            <div class="video-title">Tech Review Live</div>
+                            <div class="video-stats">
+                                <div class="stats-left">
+                                    <div class="viewers">
+                                        <div class="viewer-dot"></div>
+                                        15M views
+                                    </div>
+                                    <span>3 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5 -->
+                    <div class="swiper-slide">
+                        <video id="bgVideo" width="100%" height="100%" autoplay muted loop>
+                            <source src="/assets/images/singWithMe/video/video6.mp4" type="video/mp4">
+                        </video> 
+                        <div class="video-thumbnail video-5">
+                            <div class="live-badge">
+                                <div class="live-dot"></div>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <!-- <div class="video-category">T-Series</div> -->
+                            <div class="video-title">Gaming Live Stream</div>
+                            <div class="video-stats">
+                                <div class="stats-left">
+                                    <div class="viewers">
+                                        <div class="viewer-dot"></div>
+                                        22M views
+                                    </div>
+                                    <span>4 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                                    <!-- Slide 6 -->
+                    <div class="swiper-slide">
+                        <video id="bgVideo" width="100%" height="100%" autoplay muted loop>
+                            <source src="/assets/images/singWithMe/video/video7.mp4" type="video/mp4">
+                        </video> 
+                        <div class="video-thumbnail video-1">
+                            <div class="live-badge">
+                                <div class="live-dot"></div>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <!-- <div class="video-category">T-Series</div> -->
+                            <div class="video-title">Educational Content Live</div>
+                            <div class="video-stats">
+                                <div class="stats-left">
+                                    <div class="viewers">
+                                        <div class="viewer-dot"></div>
+                                        9M views
+                                    </div>
+                                    <span>5 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+         </section>
         <!-- End of Video Gallery -->
 
         <section class="secContact">
@@ -1102,7 +1356,88 @@
 
     <!-- Swiper Slider JS Link -->
     <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+        //video slider code 
+     // Initialize Swiper with continuous autoplay
+        // const swiper = new Swiper('.liveVideosSwiper', {
+        //     slidesPerView: 'auto',
+        //     spaceBetween: 20,
+        //     loop: true,
+        //     autoplay: {
+        //         delay: 0,
+        //         disableOnInteraction: false,
+        //         pauseOnMouseEnter: true,
+        //     },
+        //     speed: 3000,
+        //     freeMode: true,
+        //     freeModeMomentum: false,
+        //     grabCursor: true,
+        //     breakpoints: {
+        //         320: {
+        //             spaceBetween: 16,
+        //             speed: 2500,
+        //         },
+        //         768: {
+        //             spaceBetween: 18,
+        //             speed: 2800,
+        //         },
+        //         1024: {
+        //             spaceBetween: 20,
+        //             speed: 3000,
+        //         },
+        //     },
+        // });
 
+        // // Pause on hover and resume on leave
+        // const swiperEl = document.querySelector('.liveVideosSwiper');
+        
+        // swiperEl.addEventListener('mouseenter', () => {
+        //     swiper.autoplay.stop();
+        // });
+        
+        // swiperEl.addEventListener('mouseleave', () => {
+        //     swiper.autoplay.start();
+        // });
+
+        // // Add click handlers for video cards
+        // document.querySelectorAll('.swiper-slide').forEach(slide => {
+        //     slide.addEventListener('click', () => {
+        //         const title = slide.querySelector('.video-title').textContent;
+        //         console.log(`Clicked on: ${title}`);
+        //         // Add your video play logic here
+        //     });
+        // });
+
+        // // Smooth viewer count animation
+        // function animateViewers() {
+        //     const viewerElements = document.querySelectorAll('.viewers');
+        //     viewerElements.forEach(element => {
+        //         const currentText = element.textContent;
+        //         const number = parseInt(currentText.match(/\d+/)[0]);
+        //         const randomChange = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+        //         const newNumber = Math.max(1, number + randomChange);
+        //         element.innerHTML = `<div class="viewer-dot"></div>${newNumber}M views`;
+        //     });
+        // }
+
+        // // Update viewer counts every 10 seconds
+        // setInterval(animateViewers, 10000);
+
+        // // Add smooth loading animation
+        // window.addEventListener('load', () => {
+        //     const slides = document.querySelectorAll('.swiper-slide');
+        //     slides.forEach((slide, index) => {
+        //         slide.style.opacity = '0';
+        //         slide.style.transform = 'translateY(30px)';
+        //         setTimeout(() => {
+        //             slide.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        //             slide.style.opacity = '1';
+        //             slide.style.transform = 'translateY(0)';
+        //         }, index * 100);
+        //     });
+        // });
+    //video slider code 
+    </script>
     <!-- font awesome JS Link -->
     <script src="assets/js/font-awesome.min.js"></script>
 
@@ -1116,7 +1451,9 @@
     <script src="assets/js/jquery.fancybox.min.js"></script>
 
     <!-- Custom JS Link -->
+     
     <script src="assets/js/custom.js"></script>
+    
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script>
         function handleSubmit(event) {
@@ -1188,14 +1525,16 @@
         });
 
 
-
+        const video = document.getElementById('bgVideo');
+        video.addEventListener('ended', () => {
+            video.currentTime = 0;
+            video.play();
+        });
 
 
         // js library 
-
-
-    
     </script>
+    
 </body>
 
 
