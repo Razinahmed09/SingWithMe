@@ -398,3 +398,173 @@ if (jQuery(".music-progress").length) {
 //     console.log("click event");
 //     pauseMusic();
 // });
+
+
+
+
+
+
+
+// about music script 
+class MusicPlayer {
+    constructor() {
+        this.isPlaying = false;
+        this.currentTrack = 0;
+        this.currentTime = 0;
+        this.isLiked = false;
+        this.progressInterval = null;
+
+        this.tracks = [
+            {
+                title: "Give Me Some",
+                artist: "Major Powell",
+                duration: 352,
+                cover: "/assets/images/singWithMe/Ceo-singwithme.jpeg",
+                src: "/assets/songs/powelsong.aac"
+            },
+            {
+                title: "Music Give Me",
+                artist: "Major Powell",
+                duration: 351,
+                cover: "/assets/images/singWithMe/ceo-singwithme-3.jpeg",
+                src: "/assets/songs/majorsong.aac"
+            },
+            // {
+            //     title: "Don't Cry",
+            //     artist: "Use Your Illusion 1",
+            //     duration: 284,
+            //     cover: "https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=120&h=120&fit=crop&crop=center",
+            //     src: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+            // }
+        ];
+
+        this.initializeElements();
+        this.bindEvents();
+        this.updateDisplay();
+    }
+
+    initializeElements() {
+        this.player = document.getElementById('musicPlayer');
+        this.audio = document.getElementById('audioPlayer');
+        this.playBtn = document.getElementById('playBtn');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.likeBtn = document.getElementById('likeBtn');
+        this.progressContainer = document.getElementById('progressContainer');
+        this.progressBar = document.getElementById('progressBar');
+        this.currentTimeEl = document.getElementById('currentTime');
+        this.totalTimeEl = document.getElementById('totalTime');
+        this.songTitle = document.getElementById('songTitle');
+        this.artistName = document.getElementById('artistName');
+        this.albumCover = document.getElementById('albumCover');
+        // this.playIcon = this.playBtn.querySelector('.play-icon');
+        this.playIcon = this.playBtn.querySelector('.play-icon');
+        this.pauseIcon = this.playBtn.querySelector('.pause-icon');
+
+        this.audio.addEventListener('ended', () => this.nextTrack());
+    }
+
+    bindEvents() {
+        this.playBtn.addEventListener('click', () => this.togglePlay());
+        this.prevBtn.addEventListener('click', () => this.previousTrack());
+        this.nextBtn.addEventListener('click', () => this.nextTrack());
+        this.likeBtn.addEventListener('click', () => this.toggleLike());
+        this.progressContainer.addEventListener('click', (e) => this.seekTo(e));
+    }
+
+    togglePlay() {
+        if (this.audio.paused) {
+            this.audio.play();
+            this.player.classList.add('playing');
+            this.playIcon.style.display = 'none';
+            this.pauseIcon.style.display = 'inline';
+            this.startProgress();
+        } else {
+            this.audio.pause();
+            this.player.classList.remove('playing');
+            this.playIcon.style.display = 'inline';
+            this.pauseIcon.style.display = 'none';
+            this.stopProgress();
+        }
+    }
+
+    startProgress() {
+        this.stopProgress();
+        this.progressInterval = setInterval(() => {
+            this.currentTime = this.audio.currentTime;
+            this.updateProgress();
+        }, 1000);
+    }
+
+    stopProgress() {
+        if (this.progressInterval) {
+            clearInterval(this.progressInterval);
+            this.progressInterval = null;
+        }
+    }
+
+    previousTrack() {
+        this.stopProgress();
+        this.currentTrack = (this.currentTrack - 1 + this.tracks.length) % this.tracks.length;
+        this.updateDisplay();
+        if (!this.audio.paused) {
+            this.audio.play();
+            this.startProgress();
+        }
+    }
+
+    nextTrack() {
+        this.stopProgress();
+        this.currentTrack = (this.currentTrack + 1) % this.tracks.length;
+        this.updateDisplay();
+        if (!this.audio.paused) {
+            this.audio.play();
+            this.startProgress();
+        }
+    }
+
+    toggleLike() {
+        this.isLiked = !this.isLiked;
+        this.likeBtn.classList.toggle('liked', this.isLiked);
+    }
+
+    seekTo(e) {
+        const rect = this.progressContainer.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const percentage = clickX / rect.width;
+        this.audio.currentTime = percentage * this.audio.duration;
+        this.updateProgress();
+    }
+
+    updateDisplay() {
+        const track = this.tracks[this.currentTrack];
+        this.songTitle.textContent = track.title;
+        this.artistName.textContent = track.artist;
+        this.albumCover.innerHTML = `<img src="${track.cover}" alt="${track.title}" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #ff6b6b, #4ecdc4)'; this.parentElement.innerHTML='♪';">`;
+        this.audio.src = track.src;
+        this.audio.currentTime = 0;
+        this.totalTimeEl.textContent = this.formatTime(track.duration);
+        this.updateProgress();
+
+        // Reset icons to play mode
+        this.playIcon.style.display = 'inline';
+        this.pauseIcon.style.display = 'none';
+    }
+
+    updateProgress() {
+        const percentage = (this.audio.currentTime / this.audio.duration) * 100;
+        this.progressBar.style.width = `${percentage}%`;
+        this.currentTimeEl.textContent = this.formatTime(this.audio.currentTime);
+    }
+
+    formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new MusicPlayer();
+});
+// about music script 
