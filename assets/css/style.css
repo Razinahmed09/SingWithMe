@@ -105,7 +105,7 @@ h6 {
 }
 
 .hero_sec {
-    background: url("/assets/images/singWithMe/cover.jpg");
+    background: url("../images/singWithMe/cover.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -261,6 +261,7 @@ h6 {
     font-size: 54px;
     font-weight: 900;
     text-align: center;
+    color: white;
 }
 
 
@@ -695,6 +696,331 @@ h6 {
 /* hero_about */ 
 
 
+/* royalty-collection */
+
+.secRoyalty {
+    position: relative;
+    padding: 5rem 0;
+}
+
+ .secRoyalty .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+   .secRoyalty .stat-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    border: 2px solid #b198d4;
+    transition:  0.4s ease-in-out;
+    }
+
+    .secRoyalty .stat-card:hover {
+      transform: translateY(-5px);
+        background-color: #120b28;
+        box-shadow: rgba(248, 248, 248, 0.2) 0px 2px 8px 0px;
+    }
+
+    .secRoyalty .stat-card h2 {
+        font-size: 19px;
+        color: #000000;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+ .secRoyalty .stat-card:hover h2 {
+    color: white;
+    transition:  0.4s ease-in-out;
+ }
+    .secRoyalty .stat-card p {
+      font-size: 32px;
+      font-weight: bold;
+      color: #b39ad6;
+      margin-top: 6px;
+    }
+
+    .secRoyalty .chart-placeholder {
+      background: #ffffff;
+        height: 250px;
+        border-radius: 12px;
+        border: 2px dashed #b39ad6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+
+    .secRoyalty .payout-section {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .secRoyalty .payout-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: white;
+      font-weight: 700;
+    }
+    .secRoyalty .payout-history h2 {
+        color: white;
+      font-weight: 700;
+    }
+    .secRoyalty .stat-card lord-icon {
+            width: 75px;
+            height: 75px;
+            background-color: white;
+            /* padding: 5px; */
+            border-radius: 12px;
+            display: flex;
+    }
+    /* .secRoyalty .stat-card:hover {
+    } */
+    .stats-icon {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .secRoyalty .payout-btn {
+      /* background: #ff4081; */
+      background: linear-gradient(135deg, #452d64, #21183c, #321a4a);
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+    }
+
+    .secRoyalty .payout-btn:hover {
+      background: #3d13af;
+      transform: translateY(-4px);
+      /* box-shadow: rgba#ffffff (99, 99, 99, 0.2) 0px 2px 8px 0px; */
+      /* background: linear-gradient(135deg, #321a4a, #452d64, #21183c, ); */
+    }
+
+    .secRoyalty .payout-history table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #1e1e1e;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .secRoyalty .payout-history th,
+    .secRoyalty .payout-history td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #c7c7c7;
+        text-align: left;
+        background: white;
+        color: black;
+    }
+
+    .secRoyalty .payout-history th {
+      background: linear-gradient(135deg, #452d64, #22154a, #300a56);
+      color: #ffffff;
+    }
+
+    .secRoyalty .payout-history tr:hover {
+      background: #2b2b2b;
+    }
+
+/* royalty-collection */
+
+
+/* Artwork & Photo Upload */
+
+.artwork_photo {
+    position: relative;
+}
+
+.artwork_photo .hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+   .artwork_photo .hero h2 {
+      font-size: 45px;
+        color: #fff;
+        margin-bottom: 10px;
+        font-weight: 700;
+    }
+
+   .artwork_photo .hero p {
+      /* font-size: 1.05rem; */
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .artwork_photo .upload-box {
+      border: 2px dashed #896cb3;
+      background: #ffffff;
+      padding: 60px 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+      transition: 0.4s ease-in-out;
+    }
+
+    .artwork_photo .upload-box:hover {
+      border-color: #715dfa;
+      background: #1a1a1a;
+      box-shadow: rgba(248, 248, 248, 0.2) 0px 2px 8px 0px;
+    }
+
+    .artwork_photo .upload-box i {
+      font-size: 3rem;
+      color: #ff4081;
+      margin-bottom: 15px;
+      display: block;
+    }
+    .artwork_photo .upload-box:hover p {
+        color: white;
+    }
+    .artwork_photo .upload-box p {
+      font-size: 1rem;
+      color: #000000;
+      margin-bottom: 10px;
+      transition: all .4s ease-in-out;
+    }
+
+    .artwork_photo .upload-btn {
+      background: linear-gradient(135deg, rgb(69, 45, 100), rgb(33, 24, 60), rgb(50, 26, 74));
+      color: #fff;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+
+    .artwork_photo .upload-btn:hover {
+      background: #7537e8;
+    }
+
+    .artwork_photo .tips {
+      margin-top: 60px;
+      color: #bbb;
+    }
+
+    .artwork_photo .tips h3 {
+      /* font-size: 1.3rem; */
+      margin-bottom: 15px;
+      /* color: #fff; */
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .artwork_photo .tips ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    .artwork_photo .tips li {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+/* Artwork & Photo Upload */
+
+
+/* support_networking */
+
+.support_networking {
+    position: relative;
+    padding: 5rem 0;
+}
+ .support_networking .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .support_networking .hero h2 {
+          font-size: 45px;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 700;
+    }
+
+    .support_networking .hero p {
+      /* font-size: 1.1rem; */
+      color: #ccc;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .support_networking .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .support_networking .card {
+      background: #ffffff;
+      border: 2px solid #654e85;
+      border-radius: 12px;
+      padding: 25px;
+      transition: 0.4s ease-in-out;
+    }
+
+    .support_networking .card:hover {
+      transform: translateY(-5px);
+      background-color: #120b28;
+      color: #aaa;
+      box-shadow: rgba(248, 248, 248, 0.2) 0px 2px 8px 0px;
+    }
+
+    .support_networking .card h3 {
+      color: #7e60a7;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .support_networking .card p {
+      color: #000000;
+      /* font-size: 0.95rem; */
+      transition: 0.4s ease;
+
+    }
+    .support_networking .card:hover p {
+        color: #aaa;
+    }
+    .support_networking .testimonials {
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .support_networking .testimonials h3 {
+      font-size: 37px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: white;
+    }
+
+    .support_networking .quote {
+      background: #120b28;
+      border-left: 4px solid #7e60a7;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 700px;
+      color: #bbb;
+      font-style: italic;
+      border-radius: 8px;
+    }
+
+/* support_networking */
 
 .player-container {
             background: rgb(255 255 255 / 26%);
@@ -1960,6 +2286,7 @@ main::-webkit-scrollbar-track {
     font-size: 16px;
     /* padding: 0px 12px; */
     display: block;
+    pointer-events: auto;
 }
 /*==========Header CSS End==========*/
 
@@ -3775,6 +4102,103 @@ canvas {
 /*========== Gallery Section CSS End==========*/
 
 
+/* subscriptioin */
+
+
+    
+
+    .subscriptioin {
+        position: relative;
+    }
+
+   .subscriptioin .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .subscriptioin .hero h2 {
+      font-size: 45px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #fff;
+    }
+
+    .subscriptioin .hero p {
+      /* font-size: 1.1rem; */
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .subscriptioin .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .subscriptioin .feature-card {
+      background: #ffffff;
+      border: 2px solid #ad99ca;
+      border-radius: 12px;
+      padding: 20px;
+      transition: 0.4s ease-in-out;
+    }
+
+    .subscriptioin .feature-card:hover {
+      transform: translateY(-5px);
+      background-color: #120b28;
+      box-shadow: rgba(248, 248, 248, 0.2) 0px 2px 8px 0px;
+
+    }
+    .subscriptioin .feature-card p {
+      /* font-size: 0.95rem; */
+      color: #000000;
+      transition: 0.4s ease-in-out;
+
+    }
+    .subscriptioin .feature-card:hover p {
+        color: #fff;
+    }
+    .subscriptioin .feature-card h3 {
+          font-size: 23px;
+    margin-bottom: 10px;
+    color: #896cb3;
+    font-weight: 700;
+    }
+
+    
+    .un_Span {
+        color: #896cb3;
+    }
+    .subscriptioin .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .subscriptioin .cta button {
+      background: #ff4081;
+      background: linear-gradient(135deg, #452d64, #21183c, #321a4a);
+      color: #fff;
+      padding: 14px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.5s ease-in-out;
+    }
+
+    .subscriptioin .cta button:hover {
+      /* background: #e73572; */
+      transform: translateY(-4px);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      background: linear-gradient(135deg, #452d64, #21183c, #321a4a);
+    }
+
+/* subscriptioin */
+
+
 /*========== Sponsor Section CSS Start ==========*/
 
 .sponsor-section {
@@ -4564,8 +4988,10 @@ span.big-text {
 .inner-banner .h1-title {
     color: var(--white-color);
     text-align: center;
-    font-size: 80px;
-    line-height: 90px;
+    font-size: 58px;
+    line-height: 1.2;
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .artists-section {
@@ -4658,6 +5084,103 @@ span.big-text {
     }
 
 /* uplaod video section */
+
+
+/* artist-portal css */
+
+.secArtist_portal {
+    position: relative;
+}
+
+.secArtist_portal .hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .secArtist_portal .hero h2 {
+    font-size: 45px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    color: white;
+    }
+
+    .secArtist_portal .hero p {
+      /* font-size: 1.1rem; */
+      color: #ccc;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .secArtist_portal .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 30px;
+      
+      margin-top: 50px;
+    }
+
+    .secArtist_portal .feature-card {
+         background: #f3f3f3;
+       border: 2px solid #896cb3;
+      border-radius: 12px;
+      padding: 25px;
+      transition: 0.4s ease-in-out;
+    }
+
+    
+
+    .secArtist_portal .feature-card:hover {
+      transform: translateY(-5px);
+      background-color: #120b28;
+    box-shadow: rgba(248, 248, 248, 0.2) 0px 2px 8px 0px;
+    }
+
+    .secArtist_portal .feature-icon lord-icon {
+      width: 70px;
+      height: 70px;
+      background-color: #f3f3f3;
+      border-radius: 15px;
+      margin-bottom: 10px;
+    }
+
+    .secArtist_portal .feature-card h3 {
+      color: #896cb3;
+        font-size: 26px;
+        font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .secArtist_portal .feature-card p {
+      color: #000000;
+      /* font-size: 0.95rem; */
+    }
+    .secArtist_portal .feature-card:hover p {
+        color: #aaa;
+    }
+    .secArtist_portal .cta {
+      text-align: center;
+      margin: 60px 0;
+    }
+
+    .secArtist_portal .cta a {
+      background: linear-gradient(135deg, #452d64, #21183c, #321a4a);
+      color: white;
+      padding: 15px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition:  0.4s ease-in-out;
+      display: inline-block;
+    }
+
+    .secArtist_portal .cta a:hover {
+      /* background: #3d17a7; */
+      transform: translateY(-4px);
+      box-shadow: rgba(224, 224, 224, 0.2) 0px 2px 8px 0px;
+    }
+
+/* artist-portal css */
 
 
 /*========== Artists Single Page CSS Start ==========*/
@@ -5642,6 +6165,25 @@ section.events-inner-section {
     .for-des {
         display: none !important;
     }
+    .header-menu ul li ul {
+            width: 80%;
+    margin: 0 auto;
+    }
+    .menu-main-menu-container ul{
+        z-index: 9999;
+    }
+    .menu-main-menu-container li {
+        z-index: 99;
+    }
+    .menu-main-menu-container li {
+        z-index: 99999999;
+    }
+    .header-menu ul li ul {
+        z-index: 9999999999;
+    }
+    .service_drop li {
+        padding: 0;
+    }
     .mobile-vectors{
         top: -220px;
     }
@@ -6223,7 +6765,7 @@ section.events-inner-section {
     }
     /* .service_drop  */
     .service_drop {
-        display: none !important;
+        /* display: none !important; */
     }
     .form-Cta-unique {
         flex-direction: column;
@@ -6307,6 +6849,10 @@ section.events-inner-section {
     .inner-banner .h1-title {
         font-size: 13vw;
         line-height: 14vw;
+    }
+    .secRoyalty .payout-section {
+        justify-content: center;
+        flex-direction: column;
     }
     .about_inner {
         padding: 80px 0px;
@@ -6467,6 +7013,9 @@ section.events-inner-section {
     }
     .page-loader .h3-title {
         font-size: 25px;
+    }
+    .secArtist_portal .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
 }
 
