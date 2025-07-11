@@ -315,8 +315,17 @@ VANTA.HALO({
         
     //header music box script
 
-   
+        document.getElementById('chatbotGif').style.display = 'none';
+        console.log("works");
+        function showBox() {
+        document.getElementById('chatBox').style.display = 'block';
+        document.getElementById('chatbotGif').style.display = 'none';
+        }
 
+        function hideBox() {
+        document.getElementById('chatBox').style.display = 'none';
+        document.getElementById('chatbotGif').style.display = 'block'; // Add this to show the GIF again when closing
+        }
 
     //header music box script
 

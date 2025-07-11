@@ -1711,6 +1711,29 @@ a:hover {
     margin-top: 25px;
 }
 
+
+.whatsapp-button{
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000000000;
+    transition: all .4s ease-in-out;
+    text-decoration: none;
+}
+.whatsapp-button:hover{
+    color: white;
+        background: linear-gradient(135deg, #3d1b69, #1d1143, #16002d);
+}
 .top-stories .nav-link,
 .most-popular .nav-link {
     width: 150px;
@@ -2450,6 +2473,157 @@ canvas {
 
 
 /*==========Banner CSS End==========*/
+
+
+/* chatbot css */
+
+
+
+.parent-chatBot {
+        position: fixed;
+        bottom: 12px;
+        right: 14px;
+        /* width: 85px; */
+        z-index: 99999999999 !important;
+        
+    }
+
+    .chat-box {
+      width: 350px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+        background: white;
+    }
+
+    .chat-header {
+      background-color: #008cba;
+      color: white;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-header .status {
+      font-size: 12px;
+      color: #dfffd4;
+    }
+
+    .chat-header .title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-header .title img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+    .chat-body {
+      background-color: #fff;
+      padding: 10px 15px;
+    }
+
+    .chat-message {
+      background-color: #d9fdd3;
+      padding: 6px 15px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: 5px;
+      color: black;
+    }
+
+    .chat-time {
+      font-size: 12px;
+      color: #888;
+      margin: 5px 0;
+    }
+
+    .quick-replies {
+      margin: 15px 0;
+    }
+
+    .quick-replies button {
+      display: block;
+      width: 100%;
+      background-color: #00a0d1;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .chat-input {
+      border-top: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .chat-input input {
+      flex-grow: 1;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      outline: none;
+      color: #000000;
+    }
+
+    .chat-input .emoji {
+      margin-left: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .chat-footer {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .chat-footer button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+@media (max-width:767px) {
+    .parent-chatBot .chat-header .title{
+        font-size: 18px;
+    }
+    .quick-replies button {
+        padding: 4px 0;
+        font-size: 13px;
+    }
+    .chat-input input {
+            font-size: 13px;
+            padding: 5px 10px;
+    }
+}
+@media (max-width: 430px) {
+    .parent-chatBot {
+        bottom: -180px !important;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        /* right: 30px !important; */
+        /* position: absolute; */
+        width: 85%;
+    }
+}
+
+/* chatbot css */
 
 
 /*========== Artist Section CSS Start==========*/
@@ -5183,6 +5357,162 @@ span.big-text {
 /* artist-portal css */
 
 
+/* blog-detail */
+
+.blog-detail {
+    position: relative;
+}
+ 
+.blog-detail .blog-hero {
+      text-align: center;
+    }
+
+    .blog-detail .blog-hero img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 20px;
+    }
+
+    .blog-detail h1 {
+      font-size: 42px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 700;
+    max-width: 700px;
+    margin: 0 auto;
+    }
+
+    .blog-detail .blog-meta {
+          color: #ffffff;
+      /* font-size: 0.9rem; */
+      margin-bottom: 40px;
+    }
+
+    .blog-detail .blog-content h2 {
+         font-size: 30px;
+    color: #896cb3;
+    margin-top: 30px;
+    font-weight: 700;
+    }
+
+    .blog-detail .blog-content p {
+      color: #ffffff;
+      margin: 15px 0;
+    }
+
+    .blog-detail .blog-content ul {
+      padding-left: 20px;
+      margin: 20px 0;
+    }
+
+    .blog-detail .blog-content ul li {
+      margin-bottom: 10px;
+    }
+
+    .blog-detail .back-link {
+      margin-top: 50px;
+      display: inline-block;
+      color: #7166ee;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .blog-detail .back-link:hover {
+      text-decoration: underline;
+    }
+
+/* blog-detail */
+
+
+/* secArtist_portal_blog */
+
+.secArtist_portal_blog .hero {
+        max-width: 500px;
+    margin: 0 auto;
+}
+
+.secArtist_portal_blog .hero h2 {
+    color: white;
+    font-weight: 700;
+    font-size: 45px
+}
+
+.secArtist_portal_blog {
+        position: relative;
+    }
+    .secArtist_portal_blog .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.secArtist_portal_blog .blog-card {
+  background: #120b28;
+  border-radius: 15px;
+      border: 2px solid #654e85;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease-in-out;
+}
+
+.secArtist_portal_blog .blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(248, 248, 248, 0.2) 0px 2px 8px 0px;
+}
+
+.secArtist_portal_blog .blog-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.secArtist_portal_blog .blog-content {
+  padding: 20px;
+}
+
+.secArtist_portal_blog .blog-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.secArtist_portal_blog .blog-content p {
+  font-size: 0.95rem;
+  color: #b6b5b5;
+}
+
+.secArtist_portal_blog .read-more {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #7166ee;
+  text-decoration: none;
+}
+
+.secArtist_portal_blog .read-more:hover {
+  text-decoration: underline;
+}
+
+.secArtist_portal_blog .btn-primary {
+  background: #7166ee;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.secArtist_portal_blog .btn-primary:hover {
+  background: #5a52d4;
+}
+
+/* secArtist_portal_blog */
+
+
 /*========== Artists Single Page CSS Start ==========*/
 
 .artists-banner {
@@ -7082,6 +7412,9 @@ section.events-inner-section {
     .about-child .row h2 {
             font-size: 35px;
     }
+    .chat-box {
+        width: unset;
+    }
 }
 
 @media (max-width: 400px) {
@@ -7135,3 +7468,102 @@ section.events-inner-section {
 
 
 /*==========Responsive End==========*/
+
+
+ .mobile-nav2 {
+      display: none;
+      width: 100%;
+      /* background-color: #aacde9; */
+      background: linear-gradient(135deg, #3d1b69, #1d1143, #16002d);
+      margin-top: 12px;
+      position: fixed;
+      z-index: 99;
+      bottom: 0;
+    left: 0;
+  }
+
+  .mobile-nav2-ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      padding: 12px 4px;
+      margin: 0px;
+
+  }
+
+  .mobile-nav2-ul li {
+      width: 50%;
+      z-index: 999;
+  }
+
+  .li-icon {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+  }
+
+  .mobile-nav2-ul li a {
+      font-size: 11px;
+      line-height: 20px;
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: #fff;
+  }
+
+  .whatsApp-logo {
+      position: absolute;
+      bottom: 32px;
+      border-radius: 50%;
+      width: 50px;
+      /* Adjust as needed */
+      height: 50px;
+      /* Adjust as needed */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease-in-out;
+      animation: plusAnimation 1s infinite ease-in-out;
+  }
+
+  @keyframes plusAnimation {
+
+      0%,
+      100% {
+          transform: scale(1);
+      }
+
+      50% {
+          transform: scale(1.2);
+      }
+  }
+
+  .whtsp {
+      position: relative;
+
+  }
+
+  .mobile-nav2-ul i {
+      font-size: 22px;
+      color: #ffffff;
+  }
+
+  @media only screen and (max-width: 660px) {
+      .mobile-nav2 {
+          display: block;
+      }
+      span.copyright-text {
+               margin-bottom: 3rem; 
+      }
+      .whatsapp-button {
+        display: none;
+      }
+      .parent-chatBot img {
+    display: none !important;
+  }
+  }
+
+  
