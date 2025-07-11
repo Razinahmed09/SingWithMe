@@ -683,10 +683,10 @@ h6 {
                 font-size: 2rem;
             }
 
-            .profile-container {
+            /* .profile-container {
                 width: 250px;
                 height: 250px;
-            }
+            } */
 
             .floating-elements {
                 width: 300px;
@@ -6169,18 +6169,34 @@ section.events-inner-section {
             width: 80%;
     margin: 0 auto;
     }
-    .menu-main-menu-container ul{
+    .menu-main-menu-container ul {
+            z-index: 9 !important;
+    }
+    .un_dropdown  {
+            z-index: 99 !important;
+    }
+    .service_drop {
+        top: 70%;
+    }
+    .service_drop li {
+        padding: 0 !important;
+        width: unset;
+    }
+    .service_drop li a {
+        font-size: 18px !important;
+    }
+    /* .menu-main-menu-container ul{
         z-index: 9999;
-    }
-    .menu-main-menu-container li {
+    } */
+    /* .menu-main-menu-container li {
         z-index: 99;
-    }
-    .menu-main-menu-container li {
+    } */
+    /* .menu-main-menu-container li {
         z-index: 99999999;
-    }
-    .header-menu ul li ul {
+    } */
+    /* .header-menu ul li ul {
         z-index: 9999999999;
-    }
+    } */
     .service_drop li {
         padding: 0;
     }
@@ -6202,6 +6218,19 @@ section.events-inner-section {
     .overlay-body {
         border-radius: 0;
     }
+    .about-section .content {
+        display: grid;
+    place-items: center;
+    }
+    .about-section .content .title {
+        text-align: center;
+    }
+     .about-section .content .description {
+        text-align: center;
+     }
+     .about-giff img {
+        top: 315px;
+     }
     .site-header .container {
         max-width: 100%;
     }
@@ -6763,6 +6792,10 @@ section.events-inner-section {
     justify-content: center;
     margin-top: 6rem;
     }
+    .about-giff img {
+        top: 390px;
+        width: 28%;
+    }
     /* .service_drop  */
     .service_drop {
         /* display: none !important; */
@@ -6951,6 +6984,11 @@ section.events-inner-section {
     .music-card {
         max-width: 100%;
     }
+    .service_drop {
+        top: 200px !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%);
+    }
     .music-card__content {
         padding: 20px;
     }
@@ -7017,6 +7055,13 @@ section.events-inner-section {
     .secArtist_portal .features-grid {
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
+    .about-giff img {
+        top: 455px;
+        width: 55%;
+    }
+    /* .about-me .container .content-grid .image-container img {
+        object-fit: fill;
+    } */
 }
 
 
