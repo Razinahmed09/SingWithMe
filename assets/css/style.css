@@ -7315,9 +7315,12 @@ section.events-inner-section {
         max-width: 100%;
     }
     .service_drop {
-        top: 200px !important;
+        top: 156px !important;
         left: 50% !important;
         transform: translate(-50%, -50%);
+    }
+    .header-menu ul li ul li a {
+        padding: 2px 5px;
     }
     .music-card__content {
         padding: 20px;

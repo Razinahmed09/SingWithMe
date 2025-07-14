@@ -718,8 +718,8 @@
     </div>
 
     <!-- Fluid Simulation JS Link -->
-    <script src="../../cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-    <script src="../../cdn.jsdelivr.net/npm/vanta%40latest/dist/vanta.halo.min.js"></script>
+    <!-- <script src="../../cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script> -->
+    <!-- <script src="../../cdn.jsdelivr.net/npm/vanta%40latest/dist/vanta.halo.min.js"></script> -->
 
     <!-- Jquery JS Link -->
     <script src="assets/js/jquery-3.5.1.min.js"></script>
@@ -831,79 +831,107 @@
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
     <script>
         function handleSubmit(event) {
-            event.preventDefault();
+    event.preventDefault();
 
-            const successMessage = document.getElementById('successMessage');
-            const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    const form = document.getElementById('contactForm');
 
-            // Show success message with animation
-            successMessage.classList.add('show');
+    if (successMessage && form) {
+        // Show success message with animation
+        successMessage.classList.add('show');
 
-            // Reset form
-            form.reset();
+        // Reset form
+        form.reset();
 
-            // Hide success message after 6 seconds
+        // Hide success message after 6 seconds
+        setTimeout(() => {
+            successMessage.classList.remove('show');
+        }, 6000);
+    }
+}
+
+function closeForm() {
+    if (confirm('Are you sure you want to close the contact form?')) {
+        const wrapper = document.querySelector('.contact-wrapper');
+        if (wrapper) {
+            wrapper.style.transform = 'scale(0.8)';
+            wrapper.style.opacity = '0';
+
             setTimeout(() => {
-                successMessage.classList.remove('show');
-            }, 6000);
+                document.body.innerHTML = `
+                    <div style="
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        font-family: Arial;
+                        color: white;
+                        font-size: 1.5rem;
+                        background: #111;">
+                        Contact form closed
+                    </div>
+                `;
+            }, 300);
         }
+    }
+}
 
-        function closeForm() {
-            if (confirm('Are you sure you want to close the contact form?')) {
-                document.querySelector('.contact-wrapper').style.transform = 'scale(0.8)';
-                document.querySelector('.contact-wrapper').style.opacity = '0';
-                setTimeout(() => {
-                    document.body.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100vh; font-family: Arial; color: white; font-size: 1.5rem;">Contact form closed</div>';
-                }, 300);
+// Enhanced form interactions
+document.addEventListener('DOMContentLoaded', function () {
+    const inputs = document.querySelectorAll('input, textarea, select');
+    const submitBtn = document.querySelector('.submit-btn');
+
+    inputs.forEach(input => {
+        input.addEventListener('focus', function () {
+            if (this.parentElement) {
+                this.parentElement.style.transform = 'scale(1.02)';
             }
-        }
+        });
 
-        // Enhanced form interactions
-        document.addEventListener('DOMContentLoaded', function () {
-            const inputs = document.querySelectorAll('input, textarea, select');
+        input.addEventListener('blur', function () {
+            if (this.parentElement) {
+                this.parentElement.style.transform = 'scale(1)';
+            }
+        });
 
-            inputs.forEach(input => {
-                // Add floating label effect
-                input.addEventListener('focus', function () {
-                    this.parentElement.style.transform = 'scale(1.02)';
-                });
-
-                input.addEventListener('blur', function () {
-                    this.parentElement.style.transform = 'scale(1)';
-                });
-
-                // Add typing animation to buttons
-                input.addEventListener('input', function () {
-                    const submitBtn = document.querySelector('.submit-btn');
-                    submitBtn.style.transform = 'scale(1.02)';
-                    setTimeout(() => {
-                        submitBtn.style.transform = 'scale(1)';
-                    }, 100);
-                });
-            });
-
-            // Animate secondary images
-            const secondaryImages = document.querySelectorAll('.secondary-image');
-            secondaryImages.forEach((img, index) => {
+        input.addEventListener('input', function () {
+            if (submitBtn) {
+                submitBtn.style.transform = 'scale(1.02)';
                 setTimeout(() => {
-                    img.style.animation = `float 3s ease-in-out infinite ${index * 0.5}s`;
-                }, index * 200);
-            });
+                    submitBtn.style.transform = 'scale(1)';
+                }, 100);
+            }
         });
+    });
 
-        // Add parallax effect to main image
-        window.addEventListener('scroll', function () {
-            const mainImage = document.querySelector('.main-image');
-            const scrolled = window.pageYOffset;
-            mainImage.style.transform = `translateY(${scrolled * 0.1}px)`;
-        });
+    // Animate secondary images
+    const secondaryImages = document.querySelectorAll('.secondary-image');
+    secondaryImages.forEach((img, index) => {
+        setTimeout(() => {
+            img.style.animation = `float 3s ease-in-out infinite ${index * 0.5}s`;
+        }, index * 200);
+    });
+});
 
+// Parallax effect on main image
+window.addEventListener('scroll', function () {
+    const mainImage = document.querySelector('.main-image');
+    if (mainImage) {
+        const scrolled = window.pageYOffset;
+        mainImage.style.transform = `translateY(${scrolled * 0.1}px)`;
+    }
+});
 
-        const video = document.getElementById('bgVideo');
+// Auto-replay background video
+document.addEventListener('DOMContentLoaded', function () {
+    const video = document.getElementById('bgVideo');
+    if (video) {
         video.addEventListener('ended', () => {
             video.currentTime = 0;
             video.play();
         });
+    }
+});
 
 
         // js library 
