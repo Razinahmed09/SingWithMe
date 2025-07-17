@@ -297,3 +297,16 @@ window.addEventListener('DOMContentLoaded', () => {
     if (chatbotGif) chatbotGif.style.display = 'block';
   };
 });
+
+// navbar fixed js
+
+window.addEventListener("scroll", function () {
+  const header = document.querySelector(".site-header");
+        if (window.scrollY > 100) {
+        header.classList.add("fixed");
+        } else {
+        header.classList.remove("fixed");
+      }
+    });
+      
+// navbar fixed js

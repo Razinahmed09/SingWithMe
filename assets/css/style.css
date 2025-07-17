@@ -6377,9 +6377,15 @@ section.events-inner-section {
 }
 
 @media screen and (max-width:1900px) {
-    .hero_sec  {
+    /* .hero_sec  {
         margin: 3rem 0;
-    }
+    } */
+     .mobile-vectors img{
+            width: 70%;
+     }
+     .mobile-vectors {
+            top: -165px;
+     }
 }
 
 @media (max-width: 1499px) {
@@ -6402,6 +6408,12 @@ section.events-inner-section {
         margin-top: -50px;
         width: 100%;
     }
+    .mobile-vectors img {
+        width: 60%;
+    }
+    .mobile-vectors {
+        left: -55px;
+    }
 }
 
 @media (max-width: 1299px) {
@@ -6420,7 +6432,7 @@ section.events-inner-section {
         padding: 15px 3em 15px 15px;
     }
     .hero_sec .h1-title {
-            font-size: 34px;
+            font-size: 50px;
     }
     .secAbout .main h2, .albums-section .main h2 {
             font-size: 65px;
@@ -6429,8 +6441,8 @@ section.events-inner-section {
         line-height: 1.5;
     }
     .mobile-vectors {
-        top: -200px;
-        left: -60px;
+        /* top: -200px;
+        left: -60px; */
     }
     .mobile-vectors img {
             width: 55%;
@@ -6530,9 +6542,9 @@ section.events-inner-section {
     .service_drop li {
         padding: 0;
     }
-    .mobile-vectors{
+    /* .mobile-vectors{
         top: -220px;
-    }
+    } */
     .sec-btn {
         padding: 5px 13px;
     }
@@ -6606,6 +6618,9 @@ section.events-inner-section {
         position: relative;
         text-align: center;
         z-index: 1;
+    }
+    .search-container {
+        margin-left: 2rem;
     }
     .banner-btn {
         justify-content: center;
@@ -7279,9 +7294,9 @@ section.events-inner-section {
     .hero_sec .h1-title {
             font-size: 32px;
     }
-    .hero_sec {
+    /* .hero_sec {
         margin: 5rem 0 0 0;
-    }
+    } */
     .banner-btn {
         margin-top: 0;
     }
