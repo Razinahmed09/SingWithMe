@@ -129,6 +129,35 @@ $(document).ready(function ($) {
     }
   });
 
+  // 5. Sponsor Slider JS
+  var sponsor_slider = new Swiper(".brand-slider", {
+    slidesPerView: 5,
+    spaceBetween: 30,
+    loop: true,
+    autoplay: true,
+    speed: 4000,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+      576: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      1024: {
+        slidesPerView: 4,
+      },
+      1200: {
+        slidesPerView: 4,
+      },
+      1420: {
+        slidesPerView: 6,
+      },
+    }
+  });
+
   // 6. Page Loader And Wow Animation JS
   $(window).on('load', function () {
     $('.page-loader').fadeOut();
