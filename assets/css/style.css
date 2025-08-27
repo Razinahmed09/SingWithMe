@@ -2808,9 +2808,13 @@ main::-webkit-scrollbar-track {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #111;
+    background-color: #0e0916;
+    background: linear-gradient(135deg, #452d64, #120b28, #1d0c2e);
+    border: 1px solid #9469ca;
+    border-radius: 12px;
     min-width: 240px;
     z-index: 999;
+    overflow: hidden;
 }
 
 .header-menu ul li ul li a {
@@ -2825,7 +2829,8 @@ main::-webkit-scrollbar-track {
 }
 
 .header-menu ul li ul li a:hover {
-    background-color: #333;
+    background-color: #ffffff;
+    color: black;
 }
 
 .service_drop li {
@@ -2839,6 +2844,7 @@ main::-webkit-scrollbar-track {
     /* padding: 0px 12px; */
     display: block;
     pointer-events: auto;
+    font-weight: 600;
 }
 
 /*==========Header CSS End==========*/
@@ -2992,7 +2998,10 @@ canvas {
     display: flex;
     align-items: center;
 }
-
+.player-parent {
+        position: relative;
+    z-index: 999;
+}
 .banner-btn .sec-btn span {
     margin-right: 10px;
 }
@@ -6167,6 +6176,508 @@ span.big-text {
 /* uplaod video section */
 
 
+/* Main page content */
+.parent_modalForm .main-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.parent_modalForm .main-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.parent_modalForm .main-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+ .open-popup-btn {
+   padding: 10px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #9469ca;
+    background: linear-gradient(135deg, #452d64, #120b28, #1d0c2e);
+    border-radius: 50px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    animation: pulse 2s infinite;;
+}
+
+.open-popup-btn:hover {
+    background: white;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Overlay */
+.parent_modalForm .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.parent_modalForm .modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animated background particles for modal */
+.parent_modalForm .modal-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.parent_modalForm .particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.parent_modalForm .particle:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.parent_modalForm .particle:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.parent_modalForm .particle:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    left: 60%;
+    animation-delay: 1s;
+}
+
+.parent_modalForm .particle:nth-child(4) {
+    width: 100px;
+    height: 100px;
+    left: 80%;
+    animation-delay: 3s;
+}
+
+.parent_modalForm .particle:nth-child(5) {
+    width: 50px;
+    height: 50px;
+    left: 70%;
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Modal Container */
+.parent_modalForm .modal-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    width: 900px;
+    max-width: 90vw;
+    min-height: 500px;
+    transform: scale(0.7) translateY(100px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.parent_modalForm .modal-overlay.active .modal-container {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Close button */
+.parent_modalForm .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.parent_modalForm .close-btn:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4757;
+    transform: rotate(90deg);
+}
+
+.parent_modalForm .left-panel {
+    background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
+    background: linear-gradient(135deg, #4d287a, #21124e, #531b89);
+    padding: 40px;
+    color: white;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.parent_modalForm .left-panel::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.parent_modalForm .logo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    animation: glow 2s ease-in-out infinite alternate;
+    z-index: 2;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+    to   { text-shadow: 0 0 30px rgba(255, 255, 255, 0.8); }
+}
+
+.parent_modalForm .tagline {
+    font-size: 1.1rem;
+    text-align: center;
+    opacity: 0.9;
+    margin-bottom: 30px;
+    z-index: 2;
+}
+
+.parent_modalForm .platform-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    z-index: 2;
+}
+
+.parent_modalForm .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.parent_modalForm .icon:nth-child(1) { background: linear-gradient(45deg, #ffffff, #ffffff); animation-delay: 0s; }
+.parent_modalForm .icon:nth-child(2) { background: linear-gradient(45deg, #ffffff, #ffffff); animation-delay: 0.2s; }
+.parent_modalForm .icon:nth-child(3) { background: linear-gradient(45deg, #ffffff, #ffffff); animation-delay: 0.4s; }
+.parent_modalForm .icon:nth-child(4) { background: linear-gradient(45deg, #ffffff, #ffffff); animation-delay: 0.6s; }
+.parent_modalForm .icon:nth-child(5) { background: linear-gradient(45deg, #ffffff, #ffffff); animation-delay: 0.8s; }
+.parent_modalForm .icon:nth-child(6) { background: linear-gradient(45deg, #ffffff, #ffffff); animation-delay: 1s; }
+
+@keyframes iconFloat {
+    0%,100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.parent_modalForm .icon:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.parent_modalForm .right-panel {
+    padding: 40px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.parent_modalForm .form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.parent_modalForm .form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.8s ease-out 0.5s both;
+}
+
+.parent_modalForm .form-subtitle {
+    color: #7f8c8d;
+    animation: fadeInDown 0.8s ease-out 0.7s both;
+}
+
+.parent_modalForm .form-subtitle a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.parent_modalForm .form-group {
+    /* margin-bottom: 20px; */
+    animation: fadeInUp 0.8s ease-out both;
+}
+
+.parent_modalForm .form-group:nth-child(3) { animation-delay: 0.6s; }
+.parent_modalForm .form-group:nth-child(4) { animation-delay: 0.7s; }
+.parent_modalForm .form-group:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.parent_modalForm .form-input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.parent_modalForm .form-input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+.parent_modalForm .form-input::placeholder{
+    color: #5a6c7d;
+}
+.parent_modalForm .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.parent_modalForm .checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #667eea;
+}
+
+.parent_modalForm .checkbox-label {
+    font-size: 14px;
+    color: #5a6c7d;
+    line-height: 1.2;
+}
+
+.parent_modalForm .checkbox-label a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.parent_modalForm .submit-btn {
+    width: 100%;
+    padding: 15px;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    background: linear-gradient(135deg, #452d64, #120b28, #1d0c2e);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out 0.9s both;
+}
+
+.parent_modalForm .submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.parent_modalForm .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.parent_modalForm .submit-btn:hover::before {
+    left: 100%;
+}
+
+.parent_modalForm .divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #bdc3c7;
+    position: relative;
+    animation: fadeInUp 0.8s ease-out 1s both;
+}
+
+.parent_modalForm .divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e1e8ed;
+}
+
+.parent_modalForm .divider span {
+    background: white;
+    padding: 0 15px;
+}
+
+.parent_modalForm .google-btn {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    background: white;
+    color: #5a6c7d;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: fadeInUp 0.8s ease-out 1.1s both;
+}
+
+.parent_modalForm .google-btn:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.parent_modalForm .google-icon {
+    width: 20px;
+    height: 20px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="%234285f4" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h240z"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+.parent_modalForm .privacy-text {
+    font-size: 12px;
+    color: #95a5a6;
+    text-align: center;
+    margin-top: 15px;
+    line-height: 1.4;
+    animation: fadeInUp 0.8s ease-out 1.2s both;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .parent_modalForm .modal-container {
+        flex-direction: column;
+        width: 95vw;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .parent_modalForm .left-panel,
+    .parent_modalForm .right-panel {
+        width: 100%;
+    }
+    .parent_modalForm .left-panel {
+        padding: 30px;
+        min-height: 200px;
+    }
+    .parent_modalForm .right-panel {
+        padding: 30px;
+    }
+    .parent_modalForm .platform-icons {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .parent_modalForm .icon {
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+    }
+    .parent_modalForm .main-title {
+        font-size: 2rem;
+    }
+}
+
+/* Pulse animation for the open button */
+@keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70%  { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+
+
 /* artist-portal css */
 
 .secArtist_portal {
@@ -8987,12 +9498,12 @@ section.events-inner-section {
         display: none;
     }
 
-    .user-portal .container {
+    /* .user-portal .container {
         padding: 1rem;
-    }
+    } */
 
     .user-portal .welcome-title {
-        font-size: 2rem;
+        font-size: 50px;
     }
 
     .user-portal .plans-grid {
@@ -9567,6 +10078,11 @@ section.events-inner-section {
     }
 }
 
+@media (max-width: 1560px) {
+    .menu-main-menu-container li a {
+        font-size: 18px;
+    }
+}
 @media (max-width: 1499px) {
     .banner-content {
         padding-right: 20px;
@@ -9575,7 +10091,9 @@ section.events-inner-section {
     .albums-cover {
         height: 25vw;
     }
-
+    .parent_modalForm .right-panel {
+            padding: 20px;
+    }
     .album-row .albums-col {
         width: 25vw;
     }
@@ -9604,8 +10122,8 @@ section.events-inner-section {
         font-size: 34px;
     }
 
-    .menu-main-menu-container li {
-        margin: 0 17px;
+        .menu-main-menu-container li {
+        margin: 0 12px;
     }
 }
 
@@ -9614,12 +10132,12 @@ section.events-inner-section {
         right: 45px;
     }
 
-    .menu-main-menu-container li {
-        margin: 0 17px;
+     .menu-main-menu-container li {
+        margin: 0 12px;
     }
 
     .menu-main-menu-container li a {
-        font-size: 18px;
+        font-size: 16px;
     }
 }
 
@@ -9664,7 +10182,7 @@ section.events-inner-section {
 
 @media screen and (max-width:1059px) {
     .menu-main-menu-container li a {
-        font-size: 16px;
+        font-size: 15px;
     }
 
 }
@@ -9735,7 +10253,7 @@ section.events-inner-section {
     }
 
     .menu-main-menu-container li {
-        margin: 0px 14px;
+        margin: 0px 10px;
     }
 
     .upcoming-box:before {
@@ -10214,7 +10732,7 @@ section.events-inner-section {
         left: 0;
         height: 0;
         width: 100%;
-        background: var(--primary-color);
+        background-color: #120b28;
         z-index: 0;
         transition: .5s cubic-bezier(.165, .84, .44, 1);
         transition-delay: .2s;
@@ -10235,7 +10753,7 @@ section.events-inner-section {
         left: 0;
         height: 0;
         width: 100%;
-        background: var(--body-color);
+        background: linear-gradient(135deg, #452d64, #120b28, #1d0c2e);
         z-index: 0;
         transition: 1s cubic-bezier(.165, .84, .44, 1);
         transition-duration: .5s;
@@ -10699,6 +11217,13 @@ section.events-inner-section {
     .parent_majorPowel .powel_video video {
         height: 515px;
     }
+    .user-portal .section-title {
+            font-size: 50px;
+            text-align: left;
+    }
+    .user-portal .section-title span {
+            display: contents;
+    }
 }
 
 @media (max-width: 575px) {
@@ -10950,10 +11475,37 @@ section.events-inner-section {
         top: 455px;
         width: 55%;
     }
-
+    .user-portal .user-Lord lord-icon {
+        height: 70px;
+        width: 70px;
+    }
+    .user-portal .welcome-title {
+        font-size: 30px;
+        text-align: left;
+    }
+    .user-portal .section {
+        padding: 0;
+    }
     /* .about-me .container .content-grid .image-container img {
         object-fit: fill;
     } */
+     .user-portal .playlist-actions {
+            display: flex;
+    gap: 0rem;
+    justify-content: space-around;
+     }
+     .user-portal {
+        padding-bottom: 0 !important;
+     }
+     .user-portal .welcome-section {
+        padding: 0;
+     }
+     .parent_modalForm .left-panel {
+        min-height: 345px;
+     }
+     .parent_modalForm .platform-icons {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 
@@ -10963,7 +11515,12 @@ section.events-inner-section {
     .forminner_Mailto a {
         font-size: 13px;
     }
-
+    .user-portal .playlist-cover {
+        background-position: center;
+    }
+    .user-portal .section-title {
+                font-size: 36px;
+    }
     .form-Cta-unique lord-icon {
         height: 45px;
         width: 45px;

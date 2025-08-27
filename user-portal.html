@@ -72,7 +72,114 @@
             </div>
         </section>
         <!-- End of InnerBanner -->
+        <!-- modal form content -->
 
+
+        <section class="parent_modalForm">
+            <!-- Main page content -->
+            <div class="main-content d-none">
+                <h1 class="main-title">Welcome to SingWithMe</h1>
+                <p class="main-subtitle">Discover amazing music experiences and start your journey today</p>
+            </div>
+
+            <!-- Modal Overlay -->
+            <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+                <div class="modal-particles">
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                    <div class="particle"></div>
+                </div>
+
+                <div class="modal-container" onclick="event.stopPropagation()">
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+
+                    <div class="left-panel">
+                        <div class="logo">SINGWITHME</div>
+                        <div class="tagline">Start your 30-day free trial now</div>
+                        <div class="platform-icons">
+                            <div class="icon"><lord-icon src="https://cdn.lordicon.com/zsixeihu.json" trigger="loop"
+                                    delay="2000"
+                                    colors="primary:#110a5c,secondary:#e5d1fa,tertiary:#e5d1fa,quaternary:#c69cf4"
+                                    style="width:250px;height:250px">
+                                </lord-icon></div>
+                            <div class="icon"><lord-icon src="https://cdn.lordicon.com/wtrpyxpe.json" trigger="loop"
+                                    colors="primary:#320a5c,secondary:#c69cf4,tertiary:#a866ee,quaternary:#c69cf4"
+                                    style="width:250px;height:250px">
+                                </lord-icon></div>
+                            <div class="icon"><lord-icon src="https://cdn.lordicon.com/brkvhuny.json" trigger="loop"
+                                    colors="primary:#110a5c,secondary:#e5d1fa,tertiary:#110a5c,quaternary:#c69cf4"
+                                    style="width:250px;height:250px">
+                                </lord-icon></div>
+                            <div class="icon"><lord-icon src="https://cdn.lordicon.com/hqkfqrrm.json" trigger="loop"
+                                    delay="2000" colors="primary:#320a5c,secondary:#c69cf4,tertiary:#e5d1fa"
+                                    style="width:250px;height:250px">
+                                </lord-icon></div>
+                            <div class="icon"><lord-icon src="https://cdn.lordicon.com/ylmvxcix.json" trigger="loop"
+                                    colors="primary:#110a5c,secondary:#e5d1fa,tertiary:#e5d1fa,quaternary:#c69cf4,quinary:#e5d1fa"
+                                    style="width:250px;height:250px">
+                                </lord-icon></div>
+                            <div class="icon"><lord-icon src="https://cdn.lordicon.com/ngukaiic.json" trigger="loop"
+                                    delay="2000"
+                                    colors="primary:#320a5c,secondary:#c69cf4,tertiary:#320a5c,quaternary:#320a5c"
+                                    style="width:250px;height:250px">
+                                </lord-icon></div>
+                        </div>
+                    </div>
+
+                    <div class="right-panel">
+                        <div class="form-header">
+                            <div class="form-title">Create an account</div>
+                            <div class="form-subtitle">Already have an account? <a href="#"
+                                    onclick="switchToLogin()">Log in</a>
+                            </div>
+                        </div>
+
+                        <form id="authForm">
+                            <div class="form-group">
+                                <input type="email" class="form-input" placeholder="Email Address" required>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-input" placeholder="Password" required>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" class="checkbox" id="newsletter">
+                                <label class="checkbox-label" for="newsletter">
+                                    Keep me up to date with music industry news and promotions
+                                </label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <input type="checkbox" class="checkbox" id="terms" required>
+                                <label class="checkbox-label" for="terms">
+                                    I have read and agree to SingWithMe's <a href="#">terms of service</a>
+                                </label>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">Sign Up</button>
+                        </form>
+
+                        <div class="divider">
+                            <span>OR</span>
+                        </div>
+
+                        <button class="google-btn">
+                            <div class="google-icon"></div>
+                            Continue with Google
+                        </button>
+
+                        <div class="privacy-text">
+                            Protected by reCAPTCHA and subject to the Google Privacy Policy and Terms of Service.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- modal form content -->
         <section class="user-portal py-5">
             <div class="container">
                 <!-- Welcome Section -->
@@ -86,8 +193,9 @@
                     </h1>
                     <p class="welcome-subtitle">Ready to discover new music and manage your collections? Here's your
                         music journey overview.</p>
+                    <button class="open-popup-btn" onclick="openModal()">Login & Unlock Features</button>
 
-                    <div class="stats-grid">
+                    <div class="stats-grid pt-4">
                         <div class="stat-card">
                             <div class="stat-number">12</div>
                             <div class="stat-label">Playlists Created</div>
@@ -349,7 +457,7 @@
 
                     <div class="playlist-card">
                         <div class="playlist-header">
-                            <div class="playlist-icon" >
+                            <div class="playlist-icon">
                                 <img src="/assets/images/singWithMe/Workout-Energy.png" alt="">
                             </div>
                             <div class="playlist-info">
@@ -450,7 +558,12 @@
                 </div>
             </div>
         </section>
-<!-- Start of Footer -->
+
+
+
+
+
+        <!-- Start of Footer -->
         <footer class="site-footer pt-5">
             <div class="follow-us">
                 <div class="container">
@@ -698,6 +811,120 @@
             }
         `;
             document.head.appendChild(style);
+        </script>
+        <script>
+            let isLoginMode = false;
+
+            // Modal functions
+            function openModal() {
+                const overlay = document.getElementById('modalOverlay');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+                // Reset animations
+                resetAnimations();
+            }
+
+            function closeModal() {
+                const overlay = document.getElementById('modalOverlay');
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto'; // Restore background scrolling
+            }
+
+            function closeModalOnOverlay(event) {
+                if (event.target === event.currentTarget) {
+                    closeModal();
+                }
+            }
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+
+            function resetAnimations() {
+                // Reset form animations when modal opens
+                const animatedElements = document.querySelectorAll('.form-title, .form-subtitle, .form-group, .submit-btn, .divider, .google-btn, .privacy-text');
+                animatedElements.forEach(element => {
+                    element.style.animation = 'none';
+                    element.offsetHeight; // Trigger reflow
+                    element.style.animation = null;
+                });
+            }
+
+            function switchToLogin() {
+                isLoginMode = !isLoginMode;
+                const formTitle = document.querySelector('.form-title');
+                const formSubtitle = document.querySelector('.form-subtitle');
+                const submitBtn = document.getElementById('submitBtn');
+                const checkboxGroups = document.querySelectorAll('.checkbox-group');
+
+                if (isLoginMode) {
+                    formTitle.textContent = 'Welcome back';
+                    formSubtitle.innerHTML = 'Don\'t have an account? <a href="#" onclick="switchToLogin()">Sign up</a>';
+                    submitBtn.textContent = 'Log In';
+                    checkboxGroups.forEach(group => group.style.display = 'none');
+                } else {
+                    formTitle.textContent = 'Create an account';
+                    formSubtitle.innerHTML = 'Already have an account? <a href="#" onclick="switchToLogin()">Log in</a>';
+                    submitBtn.textContent = 'Sign Up';
+                    checkboxGroups.forEach(group => group.style.display = 'flex');
+                }
+
+                // Add animation to form change
+                const rightPanel = document.querySelector('.right-panel');
+                rightPanel.style.animation = 'none';
+                rightPanel.offsetHeight; // Trigger reflow
+                rightPanel.style.animation = 'fadeInUp 0.5s ease-out';
+            }
+
+            // Add form submission handling
+            document.getElementById('authForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const submitBtn = document.getElementById('submitBtn');
+                const originalText = submitBtn.textContent;
+
+                // Animate button
+                submitBtn.style.transform = 'scale(0.98)';
+                submitBtn.textContent = isLoginMode ? 'Logging in...' : 'Signing up...';
+                submitBtn.disabled = true;
+
+                // Simulate API call
+                setTimeout(() => {
+                    submitBtn.style.transform = 'scale(1)';
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+
+                    // Show success and close modal
+                    alert(isLoginMode ? 'Login successful!' : 'Account created successfully!');
+                    closeModal();
+                }, 2000);
+            });
+
+            // Add input animation effects
+            document.querySelectorAll('.form-input').forEach(input => {
+                input.addEventListener('focus', function () {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                });
+
+                input.addEventListener('blur', function () {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+
+            // Add floating animation to icons on hover
+            document.querySelectorAll('.icon').forEach(icon => {
+                icon.addEventListener('mouseenter', function () {
+                    this.style.animationPlayState = 'paused';
+                });
+
+                icon.addEventListener('mouseleave', function () {
+                    this.style.animationPlayState = 'running';
+                });
+            });
         </script>
 </body>
 
