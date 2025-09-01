@@ -310,15 +310,17 @@ document.addEventListener('DOMContentLoaded', () => {
 // });
 
 // 15. Chatbox Toggle Script
+
 window.addEventListener('DOMContentLoaded', () => {
   const chatbotGif = document.getElementById('chatbotGif');
   const chatBox = document.getElementById('chatBox');
 
-  if (chatbotGif) chatbotGif.style.display = 'none';
+  // ✅ Make sure GIF is visible initially
+  if (chatbotGif) chatbotGif.style.display = 'block';
 
   window.showBox = function () {
     if (chatBox) chatBox.style.display = 'block';
-    if (chatbotGif) chatbotGif.style.display = 'none';
+    if (chatbotGif) chatbotGif.style.display = 'none !important';
   };
 
   window.hideBox = function () {
@@ -326,6 +328,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (chatbotGif) chatbotGif.style.display = 'block';
   };
 });
+
 
 // navbar fixed js
 

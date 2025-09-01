@@ -40,7 +40,7 @@
 
         <!-- Start of Page Loader-->
         <div class="page-loader">
-            <img src="assets/images/singWithMe/logo-trans.png" alt="" >
+            <img src="assets/images/singWithMe/logo-trans.png" alt="">
         </div>
         <!-- End of Page Loader-->
 
@@ -73,35 +73,154 @@
         </section>
         <!-- End of InnerBanner -->
 
-        <section class="artwork_photo py-5">
+        <section class="artWork">
+            <div class="floating-elements">
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+            </div>
+
+            <div class="background-pattern"></div>
+
             <div class="container">
-                <!-- Hero Section -->
-                <div class="hero">
-                    <h2><span class="un_Span">Artwork</span> & Photo Upload</h2>
+                <!-- <div class="header">
+                    <h1>Artwork & Photo Upload</h1>
                     <p>Upload your album artwork, promotional photos, and graphics, so your visual identity shines just
                         as brightly as your music.</p>
                 </div>
 
-                <!-- Upload Box -->
-                <div class="upload-box">
-                    <i>📁</i>
-                    <p>Drag & drop your files here or</p>
-                    <button class="upload-btn">Browse Files</button>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📁</div>
+                    <div class="upload-text">Drag & drop your files here or</div>
+                    <div class="upload-subtext">Support for multiple files</div>
+                    <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" />
+                    <button type="button" class="browse-btn" onclick="document.getElementById('fileInput').click();">
+                        Browse Files
+                    </button>
+
+                    <div class="preview-gallery" id="previewGallery"></div>
+                </div> -->
+
+                <div class="guidelines-section">
+                    <h2 class="guidelines-title">Upload Guidelines</h2>
+
+                    <div class="guidelines-grid">
+                        <div class="guideline-item">
+                            <div class="guideline-icon"><lord-icon src="https://cdn.lordicon.com/xyvcjupc.json"
+                                    trigger="loop" delay="1500" state="in-reveal"
+                                    colors="primary:#320a5c,secondary:#110a5c,tertiary:#a866ee">
+                                </lord-icon></div>
+                            <div class="guideline-content">
+                                <h4>Accepted Formats</h4>
+                                <p>JPG, PNG, GIF formats supported with maximum 5MB file size for optimal performance
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="guideline-item">
+                            <div class="guideline-icon"><lord-icon src="https://cdn.lordicon.com/zsixeihu.json"
+                                    trigger="in" delay="1500" state="in-reveal"
+                                    colors="primary:#320a5c,secondary:#a866ee,tertiary:#a866ee,quaternary:#e5d1fa">
+                                </lord-icon></div>
+                            <div class="guideline-content">
+                                <h4>Content Types</h4>
+                                <p>Upload album covers, profile photos, banners, promotional graphics, and brand assets
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="guideline-item">
+                            <div class="guideline-icon"><lord-icon src="https://cdn.lordicon.com/vwgzpetl.json"
+                                    trigger="in" delay="1500" state="in-reveal"
+                                    colors="primary:#320a5c,secondary:#c69cf4,tertiary:#a866ee">
+                                </lord-icon></div>
+                            <div class="guideline-content">
+                                <h4>Resolution Guidelines</h4>
+                                <p>High-resolution images recommended with minimum 1000x1000px for best quality results
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="guideline-item">
+                            <div class="guideline-icon"><lord-icon src="https://cdn.lordicon.com/viglwblu.json"
+                                    trigger="in" delay="1500" state="in-reveal"
+                                    colors="primary:#8930e8,secondary:#c69cf4,tertiary:#320a5c">
+                                </lord-icon></div>
+                            <div class="guideline-content">
+                                <h4>Usage Rights</h4>
+                                <p>Ensure you own or have proper rights to use all uploaded images and artwork</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="upload-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">5MB</div>
+                            <div class="stat-label">Max File Size</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">1000px</div>
+                            <div class="stat-label">Min Resolution</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">Multiple</div>
+                            <div class="stat-label">File Upload</div>
+                        </div>
+                    </div>
+                    <div class="cta">
+                        <a href="artist-portal-2.html">
+                            <button>Explore More</button>
+                        </a>
+                    </div>
                 </div>
 
-                <!-- Upload Tips -->
-                <div class="tips">
-                    <h3>Upload Guidelines</h3>
-                    <ul>
-                        <li>Accepted formats: JPG, PNG, GIF (Max 5MB each)</li>
-                        <li>Upload album covers, profile photos, banners, etc.</li>
-                        <li>High-resolution images recommended (minimum 1000x1000px)</li>
-                        <li>Make sure you own or have rights to use the images</li>
-                    </ul>
+
+            </div>
+        </section>
+
+        <!-- newsletter section -->
+
+        <section class="news_letter py-5">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Stay <span class="un_Span">Connected</span></h1>
+                    <p class="section-subtitle">Join our community and never miss an update. Get the latest news,
+                        exclusive
+                        content, and special offers delivered straight to your inbox.</p>
+                </div>
+
+                <div class="newsletter_parent">
+                    <!-- Newsletter Section -->
+                    <div class="newsletter-section">
+                        <h2 class="newsletter-title">
+                            <div class="newsletter-icon">
+                                <lord-icon src="https://cdn.lordicon.com/xovdoewm.json" trigger="loop" delay="1500"
+                                    state="in-reveal" colors="primary:#1b1091,secondary:#a866ee">
+                                </lord-icon>
+                            </div>
+                            Newsletter
+                        </h2>
+                        <p class="newsletter-description">
+                            Subscribe to our weekly newsletter and be the first to know about new features, industry
+                            insights, and exclusive content tailored just for you.
+                        </p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <div class="input-group">
+                                <input type="email" class="email-input" placeholder="Enter your email address" required
+                                    id="emailInput">
+                                <button type="submit" class="subscribe-btn">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <div class="success-message" id="successMessage">
+                                🎉 Thank you for subscribing! Check your email to confirm your subscription.
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- newsletter section -->
         <!-- Start of Footer -->
         <footer class="site-footer pt-5">
             <div class="follow-us">
@@ -198,6 +317,7 @@
     <!-- Custom JS Link -->
     <script src="assets/js/custom.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
+    <script src="/assets/js/artwork.js"></script>
 </body>
 
 
