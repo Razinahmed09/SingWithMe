@@ -155,7 +155,7 @@
 
    
 
-        <!-- Start Of Music Controls -->
+       <!-- Start Of Music Controls -->
         <div class="lyrics-box" id="songs">
             <div class="lyrics-child">
 
@@ -192,10 +192,26 @@
                                     <div class="music-card__content">
                                         <img class="music-image" src="assets/images/singWithMe/song-img.jpg" alt="">
                                         <div class="music-info">
+                                            <div>
                                             <h2 class="music-name">Frau Power</h2>
                                             <p class="music-artist">nick karvounis</p>
+                                            </div>
+                                            <div class="Parent-visualizerDots">
+                                            <div class="music-visualizerDots">
+                                                <li></li>
+                                                <li></li>
+                                                <li></li>
+                                            </div>
+                                            <div>
+                                                <ul class="dropdown_Musicplaylist">
+                                                <li> <a href="javascript:;">Add to Playlist</a></li>
+                                                <li> <a href="javascript:;">Add to Favorites</a></li>
+                                                <li> <a href="javascript:;">Share</a></li>
+                                            </ul>
+                                            </div>
+                                            </div>
                                         </div>
-                                        <audio id="audio1" src="assets/images/singWithMe/song-img.jpg"></audio>
+                                        <audio id="audio1" src="/assets/songs/Closer The Chainsmokers 128 Kbps.mp3"></audio>
                                         <div class="music-progress">
                                             <div id="progress-bar" class="music-progress-bar"></div>
                                             <div class="music-progress__time">
@@ -229,13 +245,13 @@
                                             data-wow-delay="0.2s">
                                             <div class="music-list-image">
                                                 <div class="back-img"
-                                                    style="background-image: url(assets/images/austin-neill.jpg);">
+                                                    style="background-image: url(assets/songs/Lady-Gaga-Die-With-a-Smile-Ft.-Bruno-Mars.webp);">
                                                 </div>
                                             </div>
                                             <div class="music-list-info">
                                                 <div class="music-info">
-                                                    <h2 class="music-name">Broken Song</h2>
-                                                    <p class="music-artist">austin neill</p>
+                                                    <h2 class="music-name">Die With a Smile</h2>
+                                                    <p class="music-artist">Lady Gaga</p>
                                                 </div>
                                             </div>
                                             <div class="music_controls">
@@ -251,13 +267,13 @@
                                             data-wow-delay="0.3s">
                                             <div class="music-list-image">
                                                 <div class="back-img"
-                                                    style="background-image: url(assets/images/singWithMe/song2.jpg);">
+                                                    style="background-image: url(assets/songs/dandelions.jpg);">
                                                 </div>
                                             </div>
                                             <div class="music-list-info">
                                                 <div class="music-info">
-                                                    <h2 class="music-name">Blue Ghost</h2>
-                                                    <p class="music-artist">joshua fuller</p>
+                                                    <h2 class="music-name">Dandelions</h2>
+                                                    <p class="music-artist">Ruth B.</p>
                                                 </div>
                                             </div>
                                             <div class="music_controls">
@@ -273,13 +289,13 @@
                                             data-wow-delay="0.4s">
                                             <div class="music-list-image">
                                                 <div class="back-img"
-                                                    style="background-image: url(assets/images/singWithMe/song3.jpg);">
+                                                    style="background-image: url(assets/songs/wanna\ be\ yours.jpeg);">
                                                 </div>
                                             </div>
                                             <div class="music-list-info">
                                                 <div class="music-info">
-                                                    <h2 class="music-name">Altered Song</h2>
-                                                    <p class="music-artist">slim emcee</p>
+                                                    <h2 class="music-name">I wanna be yours</h2>
+                                                    <p class="music-artist">Arctic Monkeys</p>
                                                 </div>
                                             </div>
                                             <div class="music_controls">
@@ -295,17 +311,17 @@
                                             data-wow-delay="0.5s">
                                             <div class="music-list-image">
                                                 <div class="back-img"
-                                                    style="background-image: url(assets/images/nick-karvounis.jpg);">
+                                                    style="background-image: url(assets/songs/Señorita.jpeg);">
                                                 </div>
                                             </div>
                                             <div class="music-list-info">
                                                 <div class="music-info">
-                                                    <h2 class="music-name">Frau Power</h2>
-                                                    <p class="music-artist">nick karvounis</p>
+                                                    <h2 class="music-name">Señorita</h2>
+                                                    <p class="music-artist">Shawn Mendes & Camila Cabello</p>
                                                 </div>
                                             </div>
                                             <div class="music_controls">
-                                                <div data-id="0" class="music-controls-item play_btn">
+                                                <div data-id="4" class="music-controls-item play_btn">
                                                     <i class="fas fa-play music-controls-item--icon play-icon"></i>
                                                     <div class="play-icon-background"></div>
                                                 </div>
@@ -867,7 +883,165 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // js library 
     </script>
-    
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // === TRACKS DATA ===
+    const tracks = [
+        {
+            id: 0,
+            title: "Closer",
+            artist: "The Chainsmokers, Halsey",
+            image: "assets/songs/Closer-The-Chainsmokers-500-500.jpg",
+            src: "/assets/songs/Closer The Chainsmokers 128 Kbps.mp3"
+        },
+        {
+            id: 1,
+            title: "Die With a Smile",
+            artist: "Lady Gaga",
+            image: "assets/songs/Lady-Gaga-Die-With-a-Smile-Ft.-Bruno-Mars.webp",
+            src: "/assets/songs/Lady_Gaga_Ft_Bruno_Mars_-_Die_With_a_Smile_Offblogmedia.com.mp3"
+        },
+        {
+            id: 2,
+            title: "Dandelions",
+            artist: "Ruth B.",
+            image: "assets/songs/dandelions.jpg",
+            src: "assets/songs/Ruth B. - Dandelions (Lyrics).mp3"
+        },
+        {
+            id: 3,
+            title: "I Wanna Be Yours",
+            artist: "Arctic Monkeys",
+            image: "assets/songs/wanna be yours.jpeg",
+            src: "assets/songs/Arctic-Monkeys-I-Wanna-Be-Yours-(RawPraise.ng).mp3"
+        },
+        {
+            id: 4,
+            title: "Señorita",
+            artist: "Shawn Mendes & Camila Cabello",
+            image: "assets/songs/Señorita.jpeg",
+            src: "assets/songs/Señorita - Shawn Mendes.mp3"
+        }
+    ];
+
+    // === DOM ELEMENTS ===
+    const audio = document.getElementById("audio1");
+    const musicImage = document.querySelector(".music-image");
+    const musicName = document.querySelector(".music-name");
+    const musicArtist = document.querySelector(".music-artist");
+    const playBtn = document.getElementById("play");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+    const progressBar = document.getElementById("progress-bar");
+    const currentTimeEl = document.querySelector(".music-current-time");
+    const durationEl = document.querySelector(".music-duration-time");
+
+    let currentTrackIndex = 0;
+    let isPlaying = false;
+
+    // === LOAD TRACK ===
+    function loadTrack(index) {
+        const track = tracks[index];
+        currentTrackIndex = index;
+        musicImage.src = track.image;
+        musicName.textContent = track.title;
+        musicArtist.textContent = track.artist;
+        audio.src = track.src;
+        updatePlayButton(false);
+        audio.currentTime = 0;
+    }
+
+    // === PLAY / PAUSE FUNCTION ===
+    function playTrack() {
+        audio.play();
+        isPlaying = true;
+        updatePlayButton(true);
+    }
+
+    function pauseTrack() {
+        audio.pause();
+        isPlaying = false;
+        updatePlayButton(false);
+    }
+
+    function updatePlayButton(playing) {
+        const icon = playBtn.querySelector("i");
+        icon.classList = playing
+            ? "fas fa-pause music-controls-item--icon play-icon"
+            : "fas fa-play music-controls-item--icon play-icon";
+    }
+
+    // === NEXT / PREVIOUS TRACK ===
+    function nextTrack() {
+        currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+        loadTrack(currentTrackIndex);
+        playTrack();
+    }
+
+    function prevTrack() {
+        currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+        loadTrack(currentTrackIndex);
+        playTrack();
+    }
+
+    // === UPDATE PROGRESS BAR ===
+    audio.addEventListener("timeupdate", () => {
+        if (audio.duration) {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = `${progressPercent}%`;
+            updateTimes();
+        }
+    });
+
+    function updateTimes() {
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+        durationEl.textContent = formatTime(audio.duration);
+    }
+
+    function formatTime(time) {
+        if (isNaN(time)) return "00:00";
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes.toString().padStart(2, "0")}:${seconds
+            .toString()
+            .padStart(2, "0")}`;
+    }
+
+    // === SEEK FEATURE (CLICK ON PROGRESS BAR) ===
+    progressBar.parentElement.addEventListener("click", (e) => {
+        const width = progressBar.parentElement.clientWidth;
+        const clickX = e.offsetX;
+        audio.currentTime = (clickX / width) * audio.duration;
+    });
+
+    // === EVENT LISTENERS ===
+    playBtn.addEventListener("click", () => {
+        isPlaying ? pauseTrack() : playTrack();
+    });
+
+    nextBtn.addEventListener("click", nextTrack);
+    prevBtn.addEventListener("click", prevTrack);
+
+    // === MUSIC LIST CLICK EVENT ===
+    document.querySelectorAll(".play_btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const id = parseInt(btn.getAttribute("data-id"));
+            loadTrack(id);
+            playTrack();
+
+            // Active class highlight
+            document.querySelectorAll(".music-list-box").forEach((box) =>
+                box.classList.remove("active-track")
+            );
+            btn.closest(".music-list-box").classList.add("active-track");
+        });
+    });
+
+    // === INITIAL LOAD ===
+    loadTrack(currentTrackIndex);
+});
+    </script>
 </body>
 
 

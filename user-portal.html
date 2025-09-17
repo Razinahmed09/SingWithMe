@@ -238,7 +238,7 @@
                                 <li>Mobile app access</li>
                                 <li>Community features</li>
                             </ul>
-                            <button class="plan-button secondary">Current Plan</button>
+                            <button class="plan-button secondary" onclick="openPopup()">Current Plan</button>
                         </div>
 
                         <div class="plan-card popular">
@@ -254,7 +254,7 @@
                                 <li>Exclusive content</li>
                                 <li>Priority support</li>
                             </ul>
-                            <button class="plan-button primary" onclick="upgradeSubscription('premium')">Upgrade
+                            <button class="plan-button primary" onclick="openPopup()">Upgrade
                                 Now</button>
                         </div>
 
@@ -270,25 +270,267 @@
                                 <li>Shared family playlists</li>
                                 <li>Mix for family</li>
                             </ul>
-                            <button class="plan-button primary" onclick="upgradeSubscription('family')">Choose
+                            <button class="plan-button primary" onclick="openPopup()">Choose
                                 Family</button>
                         </div>
                     </div>
                 </section>
 
+                <!-- popup form content -->
+                <div class="payment-popup">
+                    <!-- <button class="withdraw-btn" >
+                        Withdraw Funds
+                    </button> -->
+                    <div class="overlay" id="overlay" onclick="closePopup(event)">
+                        <div class="popup" onclick="event.stopPropagation()">
+                            <div class="popup-header">
+                                <h2 class="popup-title">Withdraw Funds</h2>
+                                <button class="close-btn" onclick="closePopup()">&times;</button>
+                            </div>
+
+                            <div class="amount-section">
+                                <div class="amount-label">Amount to withdraw</div>
+                                <input type="number" class="amount-input" placeholder="0.00" min="1" step="0.01">
+                            </div>
+
+                            <div class="payment-methods">
+                                <div class="payment-method" onclick="selectMethod(this)">
+                                    <div class="payment-icon paypal">PP</div>
+                                    <div class="payment-info">
+                                        <h3>PayPal</h3>
+                                        <p>Instant transfer to your PayPal account</p>
+                                    </div>
+                                </div>
+
+                                <div class="payment-method" onclick="selectMethod(this)">
+                                    <div class="payment-icon cashapp">CA</div>
+                                    <div class="payment-info">
+                                        <h3>Cash App</h3>
+                                        <p>Direct deposit to your Cash App</p>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="payment-method" onclick="selectMethod(this)">
+                                    <div class="payment-icon venmo">V</div>
+                                    <div class="payment-info">
+                                        <h3>Venmo</h3>
+                                        <p>Send to your Venmo account</p>
+                                    </div>
+                                </div> -->
+
+                                <div class="payment-method" onclick="selectMethod(this)">
+                                    <div class="payment-icon bank">BT</div>
+                                    <div class="payment-info">
+                                        <h3>Bank Transfer</h3>
+                                        <p>2-3 business days to your bank</p>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="payment-method" onclick="selectMethod(this)">
+                                    <div class="payment-icon crypto">₿</div>
+                                    <div class="payment-info">
+                                        <h3>Cryptocurrency</h3>
+                                        <p>Bitcoin, Ethereum, or other crypto</p>
+                                    </div>
+                                </div> -->
+                            </div>
+
+                            <div class="withdraw-action">
+                                <button class="btn-cancel" onclick="closePopup()">Cancel</button>
+                                <button class="btn-confirm" onclick="processWithdraw()">Confirm Withdrawal</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- popup form content -->
+
                 <!-- Playlists Section -->
                 <section class="section" id="playlists">
-                    <h2 class="section-title">
+                    <!-- <h2 class="section-title">
                         <div class="user-Lord"><lord-icon src="https://cdn.lordicon.com/wrjtqsvf.json" trigger="loop"
                                 delay="2000"
                                 colors="primary:#320a5c,secondary:#e5d1fa,tertiary:#c69cf4,quaternary:#320a5c">
-                            </lord-icon></div> <span class="text-white" style="margin-right: -15px;">My</span> Playlists
+                            </lord-icon>
+                        </div>
+                        <span class="text-white" style="margin-right: -15px;">My</span> Playlists
                     </h2>
                     <p>Organize your favorite tracks into custom playlists</p>
 
-                    <button class="create-playlist-btn" onclick="createNewPlaylist()">
+                    <button class="create-playlist-btn create-btn">
                         + Create New Playlist
-                    </button>
+                    </button> -->
+                    <section class="playlistSection">
+                        <div class="main-container">
+                            <div class="header">
+                                <div class="logo">
+                                    <div class="user-Lord"><lord-icon src="https://cdn.lordicon.com/wrjtqsvf.json"
+                                            trigger="loop" delay="2000"
+                                            colors="primary:#320a5c,secondary:#e5d1fa,tertiary:#c69cf4,quaternary:#320a5c">
+                                        </lord-icon>
+                                    </div>
+                                </div>
+                                <div class="header-content">
+                                    <h1>My <span class="playlist-word">Playlists</span></h1>
+                                    <p>Organize your favorite tracks into custom playlists</p>
+                                </div>
+                            </div>
+
+                            <!-- removed inline onclick; now handled in scoped JS -->
+                            <button type="button" class="create-btn">
+                                <span>+</span> Create New Playlist
+                            </button>
+                        </div>
+
+                        <!-- overlay does not use inline onclick anymore -->
+                        <div class="overlay" aria-hidden="true">
+                            <div class="popup" role="dialog">
+                                <div class="popup-header">
+                                    <h2 class="popup-title">Create New Playlist</h2>
+                                    <!-- removed inline onclick -->
+                                    <button type="button" class="close-btn" aria-label="Close">&times;</button>
+                                </div>
+
+                                <div class="popup-content">
+                                    <!-- changed id -> class (playlistForm) -->
+                                    <form class="playlistForm" novalidate>
+                                        <div class="form-section">
+                                            <div class="form-group">
+                                                <label class="form-label">Playlist Name *</label>
+                                                <input type="text" class="form-input" placeholder="My Awesome Playlist"
+                                                    required>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="form-label">Search Song</label>
+                                                <input type="text" class="form-input" placeholder="Search Songs..."
+                                                    required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-section d-none">
+                                            <label class="form-label">Cover Image</label>
+                                            <div class="cover-upload-section" role="button" tabindex="0">
+
+                                                <div class="upload-placeholder cover-preview-placeholder">🎵</div>
+                                                <p>Click to upload cover image</p>
+                                                <small style="color:#a1a1aa;">JPG, PNG up to 10MB</small>
+                                            </div>
+
+                                            <input type="file" class="coverUpload" accept="image/*"
+                                                style="display:none;">
+                                        </div>
+
+                                        <div class="form-section d-none">
+                                            <label class="form-label">Privacy Settings</label>
+                                            <div class="privacy-options">
+                                                <!-- added data-privacy so JS can detect -->
+                                                <div class="privacy-option selected" data-privacy="public">
+                                                    <div class="privacy-icon">🌍</div>
+                                                    <div><strong>Public</strong></div>
+                                                    <small>Anyone can find and play</small>
+                                                </div>
+                                                <div class="privacy-option" data-privacy="private">
+                                                    <div class="privacy-icon">🔒</div>
+                                                    <div><strong>Private</strong></div>
+                                                    <small>Only you can access</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-section">
+                                            <label class="form-label">
+                                                Add Songs to Playlist
+                                                <!-- changed id -> class (selected-count) -->
+                                                <span class="selected-count" style="display:none;">0 selected</span>
+                                            </label>
+                                            <div class="songs-grid">
+                                                <!-- removed inline onclick from each .song-item -->
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=100&h=100&fit=crop"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Blinding Lights</h4>
+                                                        <p>The Weeknd</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=100&h=100&fit=crop"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Watermelon Sugar</h4>
+                                                        <p>Harry Styles</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=100&h=100&fit=crop&sat=-100"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Good 4 U</h4>
+                                                        <p>Olivia Rodrigo</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=100&h=100&fit=crop&hue=240"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Levitating</h4>
+                                                        <p>Dua Lipa</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=100&h=100&fit=crop"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Stay</h4>
+                                                        <p>The Kid LAROI & Justin Bieber</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=100&h=100&fit=crop&hue=120"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Industry Baby</h4>
+                                                        <p>Lil Nas X & Jack Harlow</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=100&h=100&fit=crop"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Heat Waves</h4>
+                                                        <p>Glass Animals</p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="song-item">
+                                                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=100&h=100&fit=crop&hue=60"
+                                                        alt="Album Cover" class="song-cover">
+                                                    <div class="song-info">
+                                                        <h4>Bad Habits</h4>
+                                                        <p>Ed Sheeran</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <button type="button" class="btn-secondary">Cancel</button>
+                                            <button type="submit" class="btn-primary">Create Playlist</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+
 
                     <section class="playlist_section">
                         <div class="bg-particles"></div>
@@ -303,12 +545,31 @@
                                         <div class="playlist-icon"></div>
                                     </div>
                                     <div class="playlist-info">
-                                        <div class="playlist-title">Liked Songs</div>
-                                        <div class="playlist-stats">157 songs • 8h 23m</div>
+                                        <div class="playlist-info-top">
+                                            <div>
+                                                <div class="playlist-title">Liked Songs</div>
+                                                <div class="playlist-stats">157 songs • 8h 23m</div>
+                                            </div>
+                                            <div class="Parent-visualizerDots">
+                                                <div class="music-visualizerDots">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </div>
+                                                <div>
+                                                    <ul class="dropdown_Musicplaylist">
+                                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                                        <li> <a href="javascript:;">Share</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="playlist-actions">
                                             <button class="btn btn-primary">▶ Play</button>
-                                            <button class="btn btn-secondary">🔀 Shuffle</button>
+                                            <button class="btn btn-secondary">❤️ Like</button>
                                         </div>
+
                                     </div>
                                 </div>
 
@@ -320,11 +581,29 @@
                                         <div class="playlist-icon"></div>
                                     </div>
                                     <div class="playlist-info">
-                                        <div class="playlist-title">Workout Beats</div>
-                                        <div class="playlist-stats">45 songs • 2h 31m</div>
+                                        <div class="playlist-info-top">
+                                            <div>
+                                                <div class="playlist-title">Workout Beats</div>
+                                                <div class="playlist-stats">45 songs • 2h 31m</div>
+                                            </div>
+                                            <div class="Parent-visualizerDots">
+                                                <div class="music-visualizerDots">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </div>
+                                                <div>
+                                                    <ul class="dropdown_Musicplaylist">
+                                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                                        <li> <a href="javascript:;">Share</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="playlist-actions">
                                             <button class="btn btn-primary">▶ Play</button>
-                                            <button class="btn btn-secondary">✏️ Edit</button>
+                                            <button class="btn btn-secondary">❤️ Like</button>
                                         </div>
                                     </div>
                                 </div>
@@ -337,11 +616,29 @@
                                         <div class="playlist-icon"></div>
                                     </div>
                                     <div class="playlist-info">
-                                        <div class="playlist-title">Chill Vibes</div>
-                                        <div class="playlist-stats">32 songs • 1h 47m</div>
+                                        <div class="playlist-info-top">
+                                            <div>
+                                                <div class="playlist-title">Chill Vibes</div>
+                                                <div class="playlist-stats">32 songs • 1h 47m</div>
+                                            </div>
+                                            <div class="Parent-visualizerDots">
+                                                <div class="music-visualizerDots">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </div>
+                                                <div>
+                                                    <ul class="dropdown_Musicplaylist">
+                                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                                        <li> <a href="javascript:;">Share</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="playlist-actions">
                                             <button class="btn btn-primary">▶ Play</button>
-                                            <button class="btn btn-secondary">📤 Share</button>
+                                            <button class="btn btn-secondary">❤️ Like</button>
                                         </div>
                                     </div>
                                 </div>
@@ -354,8 +651,26 @@
                                         <div class="playlist-icon"></div>
                                     </div>
                                     <div class="playlist-info">
-                                        <div class="playlist-title">Road Trip Mix</div>
-                                        <div class="playlist-stats">67 songs • 4h 12m</div>
+                                        <div class="playlist-info-top">
+                                            <div>
+                                                <div class="playlist-title">Road Trip Mix</div>
+                                                <div class="playlist-stats">67 songs • 4h 12m</div>
+                                            </div>
+                                            <div class="Parent-visualizerDots">
+                                                <div class="music-visualizerDots">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </div>
+                                                <div>
+                                                    <ul class="dropdown_Musicplaylist">
+                                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                                        <li> <a href="javascript:;">Share</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="playlist-actions">
                                             <button class="btn btn-primary">▶ Play</button>
                                             <button class="btn btn-secondary">❤️ Like</button>
@@ -371,11 +686,29 @@
                                         <div class="playlist-icon"></div>
                                     </div>
                                     <div class="playlist-info">
-                                        <div class="playlist-title">Party Time</div>
-                                        <div class="playlist-stats">89 songs • 5h 55m</div>
+                                        <div class="playlist-info-top">
+                                            <div>
+                                                <div class="playlist-title">Party Time</div>
+                                                <div class="playlist-stats">89 songs • 5h 55m</div>
+                                            </div>
+                                            <div class="Parent-visualizerDots">
+                                                <div class="music-visualizerDots">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </div>
+                                                <div>
+                                                    <ul class="dropdown_Musicplaylist">
+                                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                                        <li> <a href="javascript:;">Share</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="playlist-actions">
                                             <button class="btn btn-primary">▶ Play</button>
-                                            <button class="btn btn-secondary">🔀 Shuffle</button>
+                                            <button class="btn btn-secondary">❤️ Like</button>
                                         </div>
                                     </div>
                                 </div>
@@ -388,16 +721,33 @@
                                         <div class="playlist-icon"></div>
                                     </div>
                                     <div class="playlist-info">
-                                        <div class="playlist-title">Focus Flow</div>
-                                        <div class="playlist-stats">24 songs • 1h 38m</div>
+                                        <div class="playlist-info-top">
+                                            <div>
+                                                <div class="playlist-title">Focus Flow</div>
+                                                <div class="playlist-stats">24 songs • 1h 38m</div>
+                                            </div>
+                                            <div class="Parent-visualizerDots">
+                                                <div class="music-visualizerDots">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </div>
+                                                <div>
+                                                    <ul class="dropdown_Musicplaylist">
+                                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                                        <li> <a href="javascript:;">Share</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="playlist-actions">
                                             <button class="btn btn-primary">▶ Play</button>
-                                            <button class="btn btn-secondary">➕ Add</button>
+                                            <button class="btn btn-secondary">❤️ Like</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
                     </section>
@@ -418,7 +768,7 @@
                         <h1 class="section-title">Favorite Collection</h1>
                         <p class="section-subtitle">Your curated music collections</p>
                     </div>
-                    <button class="create-playlist-btn" onclick="createPlaylist()">+ Create New</button>
+                    <!-- <button class="create-playlist-btn create-btn" onclick="createPlaylist()">+ Create New</button> -->
                 </div>
 
                 <div class="playlists-grid">
@@ -433,8 +783,22 @@
                         </div>
                         <div class="playlist-actions">
                             <button class="action-btn" onclick="playPlaylist('hot-hits')">▶ Play</button>
-                            <button class="action-btn" onclick="shufflePlaylist('hot-hits')">🔀 Shuffle</button>
-                            <button class="action-btn" onclick="editPlaylist('hot-hits')">✏ Edit</button>
+                            <button class="action-btn" onclick="shufflePlaylist('hot-hits')">➕ Add</button>
+                            <div class="Parent-visualizerDots">
+                                <div class="music-visualizerDots">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </div>
+                                <div>
+                                    <ul class="dropdown_Musicplaylist">
+                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                        <li> <a href="javascript:;">Share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <button class="action-btn" onclick="editPlaylist('hot-hits')">✏ Edit</button> -->
                         </div>
                     </div>
 
@@ -450,8 +814,23 @@
                         </div>
                         <div class="playlist-actions">
                             <button class="action-btn" onclick="playPlaylist('chill-nights')">▶ Play</button>
-                            <button class="action-btn" onclick="shufflePlaylist('chill-nights')">🔀 Shuffle</button>
-                            <button class="action-btn" onclick="editPlaylist('chill-nights')">✏ Edit</button>
+                            <button class="action-btn" onclick="shufflePlaylist('chill-nights')">➕ Add</button>
+                            <div class="Parent-visualizerDots">
+                                <div class="music-visualizerDots">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </div>
+                                <div>
+                                    <ul class="dropdown_Musicplaylist">
+                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                        <li> <a href="javascript:;">Share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- <button class="action-btn" onclick="editPlaylist('chill-nights')">✏ Edit</button> -->
                         </div>
                     </div>
 
@@ -467,8 +846,22 @@
                         </div>
                         <div class="playlist-actions">
                             <button class="action-btn" onclick="playPlaylist('workout')">▶ Play</button>
-                            <button class="action-btn" onclick="shufflePlaylist('workout')">🔀 Shuffle</button>
-                            <button class="action-btn" onclick="editPlaylist('workout')">✏ Edit</button>
+                            <button class="action-btn" onclick="shufflePlaylist('workout')">➕ Add</button>
+                            <div class="Parent-visualizerDots">
+                                <div class="music-visualizerDots">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </div>
+                                <div>
+                                    <ul class="dropdown_Musicplaylist">
+                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                        <li> <a href="javascript:;">Share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <button class="action-btn" onclick="editPlaylist('workout')">✏ Edit</button> -->
                         </div>
                     </div>
 
@@ -484,8 +877,22 @@
                         </div>
                         <div class="playlist-actions">
                             <button class="action-btn" onclick="playPlaylist('rock-classics')">▶ Play</button>
-                            <button class="action-btn" onclick="shufflePlaylist('rock-classics')">🔀 Shuffle</button>
-                            <button class="action-btn" onclick="editPlaylist('rock-classics')">✏ Edit</button>
+                            <button class="action-btn" onclick="shufflePlaylist('rock-classics')">➕ Add</button>
+                            <div class="Parent-visualizerDots">
+                                <div class="music-visualizerDots">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </div>
+                                <div>
+                                    <ul class="dropdown_Musicplaylist">
+                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                        <li> <a href="javascript:;">Share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <button class="action-btn" onclick="editPlaylist('rock-classics')">✏ Edit</button> -->
                         </div>
                     </div>
 
@@ -501,8 +908,22 @@
                         </div>
                         <div class="playlist-actions">
                             <button class="action-btn" onclick="playPlaylist('love-songs')">▶ Play</button>
-                            <button class="action-btn" onclick="shufflePlaylist('love-songs')">🔀 Shuffle</button>
-                            <button class="action-btn" onclick="editPlaylist('love-songs')">✏ Edit</button>
+                            <button class="action-btn" onclick="shufflePlaylist('love-songs')">➕ Add</button>
+                            <div class="Parent-visualizerDots">
+                                <div class="music-visualizerDots">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </div>
+                                <div>
+                                    <ul class="dropdown_Musicplaylist">
+                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                        <li> <a href="javascript:;">Share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <button class="action-btn" onclick="editPlaylist('love-songs')">✏ Edit</button> -->
                         </div>
                     </div>
 
@@ -518,8 +939,22 @@
                         </div>
                         <div class="playlist-actions">
                             <button class="action-btn" onclick="playPlaylist('piano')">▶ Play</button>
-                            <button class="action-btn" onclick="shufflePlaylist('piano')">🔀 Shuffle</button>
-                            <button class="action-btn" onclick="editPlaylist('piano')">✏ Edit</button>
+                            <button class="action-btn" onclick="shufflePlaylist('piano')">➕ Add</button>
+                            <div class="Parent-visualizerDots">
+                                <div class="music-visualizerDots">
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </div>
+                                <div>
+                                    <ul class="dropdown_Musicplaylist">
+                                        <li> <a href="javascript:;">Add to Playlist</a></li>
+                                        <li> <a href="javascript:;">Add to Favorites</a></li>
+                                        <li> <a href="javascript:;">Share</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- <button class="action-btn" onclick="editPlaylist('piano')">✏ Edit</button> -->
                         </div>
                     </div>
                 </div>
@@ -566,51 +1001,185 @@
         <!-- newsletter section -->
 
         <section class="news_letter py-5">
-        <div class="container">
-            <div class="section-header">
-                <h1 class="section-title">Stay <span class="un_Span">Connected</span></h1>
-                <p class="section-subtitle">Join our community and never miss an update. Get the latest news, exclusive
-                    content, and special offers delivered straight to your inbox.</p>
-            </div>
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Stay <span class="un_Span">Connected</span></h1>
+                    <p class="section-subtitle">Join our community and never miss an update. Get the latest news,
+                        exclusive
+                        content, and special offers delivered straight to your inbox.</p>
+                </div>
 
-            <div class="newsletter_parent">
-                <!-- Newsletter Section -->
-                <div class="newsletter-section">
-                    <h2 class="newsletter-title">
-                        <div class="newsletter-icon">
-                            <lord-icon
-                                src="https://cdn.lordicon.com/xovdoewm.json"
-                                trigger="loop"
-                                delay="1500"
-                                state="in-reveal"
-                                colors="primary:#1b1091,secondary:#a866ee">
-                            </lord-icon>
+                <div class="newsletter_parent">
+                    <!-- Newsletter Section -->
+                    <div class="newsletter-section">
+                        <h2 class="newsletter-title">
+                            <div class="newsletter-icon">
+                                <lord-icon src="https://cdn.lordicon.com/xovdoewm.json" trigger="loop" delay="1500"
+                                    state="in-reveal" colors="primary:#1b1091,secondary:#a866ee">
+                                </lord-icon>
+                            </div>
+                            Newsletter
+                        </h2>
+                        <p class="newsletter-description">
+                            Subscribe to our weekly newsletter and be the first to know about new features, industry
+                            insights, and exclusive content tailored just for you.
+                        </p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <div class="input-group">
+                                <input type="email" class="email-input" placeholder="Enter your email address" required
+                                    id="emailInput">
+                                <button type="submit" class="subscribe-btn">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <div class="success-message" id="successMessage">
+                                🎉 Thank you for subscribing! Check your email to confirm your subscription.
+                            </div>
+                        </form>
                     </div>
-                        Newsletter
-                    </h2>
-                    <p class="newsletter-description">
-                        Subscribe to our weekly newsletter and be the first to know about new features, industry
-                        insights, and exclusive content tailored just for you.
-                    </p>
-                    <form class="newsletter-form" id="newsletterForm">
-                        <div class="input-group">
-                            <input type="email" class="email-input" placeholder="Enter your email address" required
-                                id="emailInput">
-                            <button type="submit" class="subscribe-btn">
-                                Subscribe
-                            </button>
-                        </div>
-                        <div class="success-message" id="successMessage">
-                            🎉 Thank you for subscribing! Check your email to confirm your subscription.
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
         </section>
 
         <!-- newsletter section -->
-<!-- Start of Footer -->
+
+        <section class="bottom_fixedMucicPlayer">
+            <div class="music-player">
+                <!-- Controles do player fixados na parte inferior -->
+                <div class="player-controls">
+                    <!-- Informações da faixa -->
+                    <div class="control-track-info">
+                        <img src="https://img.freepik.com/free-photo/turn-page-collage_23-2149876302.jpg?t=st=1758015322~exp=1758018922~hmac=1f34868efde685f4bab0ea4dd3ba8053156fc6893e569c6612d45e75ae84330e&w=1060"
+                            alt="Pequena capa do álbum" class="control-cover">
+                        <div>
+                            <p class="control-title">Midnight City</p>
+                            <p class="control-artist">M83</p>
+                        </div>
+                        <div class="player_dots">
+                            <div class="music-player">
+                                <div class="controls">
+                                    <div style="flex: 1;"></div>
+                                    <button class="menu-button" id="menuButton">
+                                        <div class="dots">
+                                            <div class="dot"></div>
+                                            <div class="dot"></div>
+                                            <div class="dot"></div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="popup-overlay" id="popupOverlay">
+                                <div class="popup">
+                                    <button class="close-button" id="closeButton">&times;</button>
+
+                                    <div class="popup-header">
+                                        <div class="popup-title">Music Options</div>
+                                        <div class="popup-subtitle">Choose an action</div>
+                                    </div>
+
+                                    <div class="popup-options">
+                                        <button class="option" id="shareOption">
+                                            <div class="option-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                                                    <polyline points="16,6 12,2 8,6" />
+                                                    <line x1="12" y1="2" x2="12" y2="15" />
+                                                </svg>
+                                            </div>
+                                            <div class="option-text">
+                                                <div class="option-title">Share Music</div>
+                                                <div class="option-description">Share this song with friends</div>
+                                            </div>
+                                        </button>
+
+                                        <button class="option" id="saveOption">
+                                            <div class="option-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+                                                </svg>
+                                            </div>
+                                            <div class="option-text">
+                                                <div class="option-title">Save to List</div>
+                                                <div class="option-description">Add to your playlist or favorites</div>
+                                            </div>
+                                        </button>
+
+                                        <button class="option" id="downloadOption">
+                                            <div class="option-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                                    <polyline points="7,10 12,15 17,10" />
+                                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                                </svg>
+                                            </div>
+                                            <div class="option-text">
+                                                <div class="option-title">Download</div>
+                                                <div class="option-description">Save offline for later</div>
+                                            </div>
+                                        </button>
+
+                                        <button class="option" id="infoOption">
+                                            <div class="option-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2">
+                                                    <circle cx="12" cy="12" r="10" />
+                                                    <path d="M12 16v-4" />
+                                                    <path d="M12 8h.01" />
+                                                </svg>
+                                            </div>
+                                            <div class="option-text">
+                                                <div class="option-title">Song Info</div>
+                                                <div class="option-description">View details and lyrics</div>
+                                            </div>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="notification" id="notification"></div>
+                        </div>
+                    </div>
+
+                    <!-- Controles de reprodução -->
+                    <div class="playback-controls">
+                        <div class="playback-buttons">
+                            <button class="control-button">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button class="play-pause-button">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="control-button">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                        </div>
+
+                        <!-- Barra de progresso -->
+                        <div class="progress-container">
+                            <span class="time current-time">1:23</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="time total-time">3:45</span>
+                        </div>
+                    </div>
+
+                    <!-- Controle de volume -->
+                    <div class="volume-control">
+                        <i class="fas fa-volume-up"></i>
+                        <div class="volume-bar">
+                            <div class="volume-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Start of Footer -->
         <footer class="site-footer pt-5">
             <div class="follow-us">
                 <div class="container">
@@ -678,6 +1247,269 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            //playlist popup js
+
+            (function () {
+                // scope to the playlist section so no globals are created
+                const section = document.querySelector('.playlistSection');
+                if (!section) return;
+
+                const overlay = section.querySelector('.overlay');
+                const openBtn = section.querySelector('.create-btn');
+                const closeBtn = section.querySelector('.close-btn');
+                const form = section.querySelector('form.playlistForm');
+                const coverUpload = section.querySelector('input.coverUpload');
+                const coverUploadSection = section.querySelector('.cover-upload-section');
+                const coverPreviewDiv = section.querySelector('.cover-preview-placeholder') || section.querySelector('.upload-placeholder');
+                const selectedCountEl = section.querySelector('.selected-count');
+                const privacyOptions = section.querySelectorAll('.privacy-option');
+                const songItems = section.querySelectorAll('.song-item');
+                const submitBtn = form.querySelector('.btn-primary');
+                const cancelBtn = form.querySelector('.btn-secondary');
+
+                // local-scoped state (won't pollute global scope)
+                let ps_selectedPrivacy = 'public';
+                let ps_selectedSongs = new Set();
+
+                // Open popup
+                openBtn.addEventListener('click', () => {
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+
+                // Close popup when clicking overlay (outside the popup)
+                overlay.addEventListener('click', (e) => {
+                    if (e.target === overlay) closePopup();
+                });
+
+                // Close button
+                closeBtn.addEventListener('click', closePopup);
+
+                // Cancel action (reset & close)
+                cancelBtn.addEventListener('click', () => {
+                    form.reset();
+                    coverPreviewDiv.innerHTML = '🎵';
+                    privacyOptions.forEach((opt) => opt.classList.toggle('selected', opt.dataset.privacy === 'public'));
+                    songItems.forEach(i => i.classList.remove('selected'));
+                    ps_selectedSongs.clear();
+                    updateSelectedCount();
+                    ps_selectedPrivacy = 'public';
+                    closePopup();
+                });
+
+                // Escape key closes popup when active
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && overlay.classList.contains('active')) closePopup();
+                });
+
+                function closePopup() {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+
+                // Cover upload triggers
+                coverUploadSection.addEventListener('click', () => coverUpload.click());
+                coverUpload.addEventListener('change', function () {
+                    const file = this.files && this.files[0];
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = function (evt) {
+                        coverPreviewDiv.innerHTML = `<img src="${evt.target.result}" alt="Cover Preview" class="cover-preview">`;
+                    };
+                    reader.readAsDataURL(file);
+                });
+
+                // Privacy options (use data-privacy attribute set in HTML)
+                privacyOptions.forEach(option => {
+                    option.addEventListener('click', () => {
+                        privacyOptions.forEach(opt => opt.classList.remove('selected'));
+                        option.classList.add('selected');
+                        ps_selectedPrivacy = option.dataset.privacy || 'public';
+                    });
+                });
+
+                // Song toggles
+                songItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const titleEl = item.querySelector('h4');
+                        const title = titleEl ? titleEl.textContent.trim() : null;
+                        if (!title) return;
+
+                        if (item.classList.contains('selected')) {
+                            item.classList.remove('selected');
+                            ps_selectedSongs.delete(title);
+                        } else {
+                            item.classList.add('selected');
+                            ps_selectedSongs.add(title);
+                        }
+                        updateSelectedCount();
+                    });
+                });
+
+                function updateSelectedCount() {
+                    const count = ps_selectedSongs.size;
+                    if (!selectedCountEl) return;
+                    if (count > 0) {
+                        selectedCountEl.textContent = `${count} selected`;
+                        selectedCountEl.style.display = 'inline-block';
+                    } else {
+                        selectedCountEl.style.display = 'none';
+                    }
+                }
+
+                // Form submission (scoped)
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const playlistTitle = form.querySelector('input[type="text"]').value || '';
+                    if (!playlistTitle.trim()) {
+                        alert('Please enter a playlist name');
+                        return;
+                    }
+
+                    submitBtn.textContent = 'Creating...';
+                    submitBtn.disabled = true;
+
+                    // simulate async save
+                    setTimeout(() => {
+                        alert(`Playlist "${playlistTitle}" created!\nPrivacy: ${ps_selectedPrivacy}\nSongs added: ${ps_selectedSongs.size}`);
+
+                        // Reset UI
+                        form.reset();
+                        coverPreviewDiv.innerHTML = '🎵';
+                        privacyOptions.forEach(opt => opt.classList.toggle('selected', opt.dataset.privacy === 'public'));
+                        songItems.forEach(item => item.classList.remove('selected'));
+                        ps_selectedSongs.clear();
+                        updateSelectedCount();
+                        ps_selectedPrivacy = 'public';
+
+                        submitBtn.textContent = 'Create Playlist';
+                        submitBtn.disabled = false;
+                        closePopup();
+                    }, 900);
+                });
+            })();
+        </script>
+        <script>
+
+            let selectedPrivacy = 'public';
+            let selectedSongs = new Set();
+
+            function showPlaylistPopup() {
+                document.getElementById('overlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closePlaylistPopup(event) {
+                if (event && event.target !== document.getElementById('overlay')) return;
+                document.getElementById('overlay').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            function triggerFileUpload() {
+                document.getElementById('coverUpload').click();
+            }
+
+            function handleImageUpload(input) {
+                const file = input.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        const preview = document.getElementById('coverPreview');
+                        preview.innerHTML = `<img src="${e.target.result}" alt="Cover Preview" class="cover-preview">`;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            function selectPrivacy(element, privacy) {
+                document.querySelectorAll('.privacy-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                element.classList.add('selected');
+                selectedPrivacy = privacy;
+            }
+
+            function toggleSong(element) {
+                const songTitle = element.querySelector('h4').textContent;
+
+                if (element.classList.contains('selected')) {
+                    element.classList.remove('selected');
+                    selectedSongs.delete(songTitle);
+                } else {
+                    element.classList.add('selected');
+                    selectedSongs.add(songTitle);
+                }
+
+                updateSelectedCount();
+            }
+
+            function updateSelectedCount() {
+                const countElement = document.getElementById('selectedCount');
+                const count = selectedSongs.size;
+
+                if (count > 0) {
+                    countElement.textContent = `${count} selected`;
+                    countElement.style.display = 'inline-block';
+                } else {
+                    countElement.style.display = 'none';
+                }
+            }
+
+            // Form submission
+            document.getElementById('playlistForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(this);
+                const playlistName = this.querySelector('input[type="text"]').value;
+                const description = this.querySelector('textarea').value;
+
+                if (!playlistName.trim()) {
+                    alert('Please enter a playlist name');
+                    return;
+                }
+
+                // Simulate playlist creation
+                const submitBtn = this.querySelector('.btn-primary');
+                submitBtn.textContent = 'Creating...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    alert(`Playlist "${playlistName}" created successfully!\nPrivacy: ${selectedPrivacy}\nSongs added: ${selectedSongs.size}`);
+
+                    // Reset form
+                    this.reset();
+                    document.getElementById('coverPreview').innerHTML = '🎵';
+                    document.querySelectorAll('.privacy-option').forEach((option, index) => {
+                        option.classList.toggle('selected', index === 0);
+                    });
+                    document.querySelectorAll('.song-item').forEach(song => {
+                        song.classList.remove('selected');
+                    });
+                    selectedSongs.clear();
+                    updateSelectedCount();
+                    selectedPrivacy = 'public';
+
+                    submitBtn.textContent = 'Create Playlist';
+                    submitBtn.disabled = false;
+                    closePopup();
+                }, 2000);
+            });
+
+            // Close popup with Escape key
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closePopup();
+                }
+            });
+
+        </script>
+
+
+        <script src="/assets/js/bottommusicPlayer.js"></script>
+
+        <script src="assets/js/artwork.js"></script>
         <!-- End of Footer -->
         <!-- Jquery JS Link -->
         <script src="assets/js/jquery-3.5.1.min.js"></script>
@@ -701,9 +1533,11 @@
 
         <!-- Custom JS Link -->
         <script src="assets/js/custom.js"></script>
-<script src="https://cdn.lordicon.com/lordicon.js"></script>
+
         <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
         <script>
+
             function toggleFaq(element) {
                 const faqItem = element.parentElement;
                 const isActive = faqItem.classList.contains('active');
@@ -974,6 +1808,8 @@
                 });
             });
         </script>
+
+
 </body>
 
 

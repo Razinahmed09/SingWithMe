@@ -46,51 +46,29 @@
         <!-- End of Page Loader-->
 
         <!-- Start of Header -->
-        <header class="site-header">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <div class="col-lg-3">
-                        <div class="site-branding">
-                            <a href="index-2.html" title="SpiffyPlay - Music Design HTML5 Template">
-                                <img src="assets/images/Logo-new.svg" alt="Logo New">
-                                <!-- sound track -->
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="main-navigation">
-                            <button class="hamburger for-mob">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </button>
-                            <div class="header-menu">
-                                <div class="menu-main-menu-container">
-                                    <ul>
-                                        <li><a href="index-2.html" title="Home">Home</a></li>
-                                        <li><a href="artists.html" title="Artists">Artists</a></li>
-                                        <li><a href="albums.html" title="Albums">Albums</a></li>
-                                        <li><a href="events.html" title="Events">Events</a></li>
-                                        <li><a href="gallery.html" title="Gallery">Gallery</a></li>
-                                        <li><a href="index-2.html#songs" title="Songs">Songs</a></li>
-                                        <li><a href="contact-us.html" title="Contact Us">Contact Us</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </header>
+         <!-- Navbar will be inserted here -->
+        <div id="navbar-container"></div>
+        <script>
+            // Load navbar
+            fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar-container').innerHTML = data;
+            });
+        </script>
+        <!-- End of Header -->
         <!-- End of Header -->
 
         <!-- Start of InnerBanner -->
-        <section class="inner-banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="h1-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">Artists</h1>
+        <section class="inner-banner contact-banner">
+            <div class="contact_child">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="h1-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                               Our Artist
+                            </h1>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,24 +76,76 @@
         <!-- End of InnerBanner -->
 
         <!-- Start of Artists Section -->
-        <div class="artists-section">
+         <section class="artist-section py-5 position-relative">
+            
+        <div class="area" >
+            <ul class="circles">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+            </ul>
+            </div >
             <div class="container">
+                <div class="row pt-5">
+                    <div class="col-lg-12">
+                        <div class="title">
+                            <!-- <div class="mobile-vectors">
+                                <img src="/assets/images/singWithMe/mobile-vector.png" alt="">
+                            </div> -->
+                            <h2 class="h2-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                                <div class='main'>
+                                <h2 class="first"> Artist</h2>
+                                <h2 class="second">Artist</h2>
+                                </div>
+                                </h2>
+                            <h4 class="h4-title wow fadeup-animation mt-4" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                                Fresh Sounds, New Vibes – Meet Our Latest Artist</h4>
+                        </div>
+                        <div class="parent-loader">
+                            <div class="loader">
+                                <div class="box1"></div>
+                                <div class="box2"></div>
+                                <div class="box3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="artist-row">
                     <div class="row g-5">
                         <div class="col-lg-6">
-                            <a href="single-artists.html" title="Jewel Lee" class="artist-box odd wow left-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                            <a href="artist-portal-2.html" title="Jewel Lee" class="artist-box odd wow left-animation"
+                                data-wow-duration="0.8s" data-wow-delay="0.2s">
                                 <div class="back-img" style="background-image: url(assets/images/jesse-ramirez.jpg);">
                                     <div class="rotate-text">
                                         <span>Jewel Lee</span>
                                     </div>
                                 </div>
-
+                                <div class="artist-content">
+                                    <h4>Genre: Pop / R&B</h4>
+                                    <p>With ethereal vocals and heartfelt lyrics, Luna Skye brings soulful melodies that
+                                        captivate her audience. Her breakout single “Moonlight Dreams” is gaining
+                                        traction across Spotify and YouTube.
+                                    </p>
+                                </div>
                             </a>
                         </div>
                         <div class="col-lg-6">
-                            <a href="single-artists.html" title="Frankie Stein" class="artist-box even wow right-animation" data-wow-duration="0.8s" data-wow-delay="0.3s">
-
-                                <div class="back-img" style="background-image: url(assets/images/sam-moqadam.jpg);">
+                            <a href="artist-portal-2.html" title="Frankie Stein" class="artist-box even wow right-animation"
+                                data-wow-duration="0.8s" data-wow-delay="0.3s">
+                                <div class="artist-content">
+                                    <h4>Genre: Hip-Hop / Rap</h4>
+                                    <p>JayNova’s raw energy and lyrical flow are redefining underground hip-hop. From
+                                        freestyle battles to viral TikTok snippets, he's a force ready to rise.
+                                    </p>
+                                </div>
+                                <div class="back-img" style="background-image: url(assets/images/singWithMe/lyrics-writter.jpg);">
                                     <div class="rotate-text">
                                         <span>Frankie Stein</span>
                                     </div>
@@ -123,30 +153,49 @@
                             </a>
                         </div>
                         <div class="col-lg-6">
-                            <a href="single-artists.html" title="vishnu r nair" class="artist-box odd  wow left-animation" data-wow-duration="0.8s" data-wow-delay="0.4s">
-                                <div class="back-img" style="background-image: url(assets/images/vishnu-r-nair.jpg);">
+                            <a href="artist-portal-2.html" title="vishnu r nair" class="artist-box odd  wow left-animation"
+                                data-wow-duration="0.8s" data-wow-delay="0.4s">
+                                <div class="back-img" style="background-image: url(assets/images/singWithMe/lyrics-writter-2.jpg);">
                                     <div class="rotate-text">
-                                        <span>vishnu r nair</span>
+                                        <span>John Smith</span>
                                     </div>
                                 </div>
-
+                                <div class="artist-content">
+                                    <h4>Genre: Electronic / Chillwave</h4>
+                                    <p>Blending ambient soundscapes with lo-fi beats, Amira Vee creates immersive tracks
+                                        perfect for late-night vibes. Her debut EP “Digital Soul” just dropped on all
+                                        platforms.
+                                    </p>
+                                </div>
                             </a>
                         </div>
                         <div class="col-lg-6">
-                            <a href="single-artists.html" title="vidar nordli" class="artist-box even wow right-animation" data-wow-duration="0.8s" data-wow-delay="0.5s">
-
-                                <div class="back-img" style="background-image: url(assets/images/vidar-nordli-mathisen.jpg);">
+                            <a href="artist-portal-2.html" title="vidar nordli" class="artist-box even wow right-animation"
+                                data-wow-duration="0.8s" data-wow-delay="0.5s">
+                                <div class="artist-content">
+                                    <h4>Genre: Alternative Rock</h4>
+                                    <p>This rock band delivers powerful anthems with gritty guitar riffs and
+                                        compelling storytelling. Their latest album “Neon Silence” is a must-listen for
+                                        alternative fans.
+                                    </p>
+                                </div>
+                                <div class="back-img"
+                                    style="background-image: url(assets/images/vidar-nordli-mathisen.jpg);">
                                     <div class="rotate-text">
-                                        <span>vidar nordli</span>
+                                        <span>Alexa White</span>
                                     </div>
                                 </div>
                             </a>
                         </div>
-
+                        <!-- <div class="col-lg-12">
+                            <div class="btn-part wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.6s">
+                                <a href="#" class="sec-btn" title="view more">view more</a>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- End of Artists Section -->
 
         <!-- newsletter section -->
@@ -197,13 +246,14 @@
 
         <!-- newsletter section -->
 <!-- Start of Footer -->
-        <footer class="site-footer">
+        <footer class="site-footer pt-5">
             <div class="follow-us">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="title">
-                                <h2 class="h2-title wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.2s">follow us</h2>
+                                <h2 class="h2-title wow fadeup-animation" data-wow-duration="0.8s"
+                                    data-wow-delay="0.2s">follow us</h2>
                             </div>
                         </div>
                     </div>
@@ -215,24 +265,24 @@
                                     <span class="small-text">Facebook</span>
                                 </a>
                             </li>
-                            <li class="wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.3s">
+                            <!-- <li class="wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.3s">
                                 <a href="javascript:void(0);" title="Spotify">
                                     <span class="big-text">Sp</span>
                                     <span class="small-text">Spotify</span>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.4s">
                                 <a href="javascript:void(0);" title="Instagram">
                                     <span class="big-text">In</span>
                                     <span class="small-text">Instagram</span>
                                 </a>
                             </li>
-                            <li class="wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.5s">
+                            <!-- <li class="wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.5s">
                                 <a href="javascript:void(0);" title="Youtube">
                                     <span class="big-text">Yt</span>
                                     <span class="small-text">Youtube</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                             <li class="wow fadeup-animation" data-wow-duration="0.8s" data-wow-delay="0.6s">
                                 <a href="javascript:void(0);" title="Twitter">
@@ -249,13 +299,15 @@
                     <div class="row align-items-center ">
                         <div class="col-lg-6 text-left ">
                             <div class="footer-logo">
-                                <a href="index-2.html" title="SpiffyPlay - Music Design HTML5 Template">
-                            SpiffyPlay
-                        </a>
+                                <a href="index.html" title="SingWithMe Records Ltd.">
+                                    <img src="assets/images/singWithMe/logo-trans.png" alt="" width="100px">
+                                </a>
                             </div>
                         </div>
                         <div class="col-lg-6 text-right ">
-                            <span class="copyright-text ">© 2021 All Rights Reserved By <a href="https://themeforest.net/user/geekcodelab" target="_blank" title="GeekCodeLab ">GeekCodeLab.</a></span>
+                            <span class="copyright-text ">© 2025 All Rights Reserved By | Designed By <a
+                                    href="https://thevisionbrands.com/" target="_blank" title="Vision Brands ">The
+                                    Vision Brands</a></span>
                         </div>
                     </div>
                 </div>
